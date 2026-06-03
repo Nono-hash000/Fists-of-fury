@@ -13,6 +13,11 @@ config_version=5
 config/name="Fists of Fury"
 run/main_scene="uid://citeaijb61k5u"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="uid://c26kceqmqpeav"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
 
 [display]
 

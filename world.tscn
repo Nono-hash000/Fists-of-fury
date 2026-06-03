@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ngyudfhqy6ot" path="res://world.gd" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://t3un82prvs88" path="res://scenes/characters/player.tscn" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://60cqai1rkb80" path="res://scenes/props/barrel.tscn" id="4_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://g4xr1kkwmhi2" path="res://scenes/characters/basic_enemy.tscn" id="5_036b0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
 size = Vector2(6, 64)
@@ -39,3 +40,23 @@ position = Vector2(60, 34)
 
 [node name="Barrel" parent="ActorsContainer" unique_id=1944909504 instance=ExtResource("4_aqk2v")]
 position = Vector2(81, 55)
+
+[node name="BasicEnemy" parent="ActorsContainer" unique_id=1556495657 node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
+position = Vector2(56, 70)
+player = NodePath("../Player")
+
+[node name="BasicEnemy2" parent="ActorsContainer" unique_id=649836132 node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
+position = Vector2(14, 34)
+player = NodePath("../Player")
+
+[node name="BasicEnemy3" parent="ActorsContainer" unique_id=2086495884 node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
+position = Vector2(112, 43)
+player = NodePath("../Player")
+
+[node name="BasicEnemy4" parent="ActorsContainer" unique_id=1604904272 node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
+position = Vector2(16, 58)
+player = NodePath("../Player")
+
+[node name="BasicEnemy5" parent="ActorsContainer" unique_id=256716977 node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
+position = Vector2(98, 35)
+player = NodePath("../Player")

@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://bstqny1yyxunj" path="res://scenes/characters/character.gd" id="1_1bdar"]
 [ext_resource type="Texture2D" uid="uid://cj0ymie7t6a2b" path="res://assets/art/characters/shadow.png" id="2_e22cc"]
 [ext_resource type="PackedScene" uid="uid://cwl1jdlf5m1o7" path="res://scenes/colliders/damage_emitter.tscn" id="3_e22cc"]
+[ext_resource type="PackedScene" uid="uid://c20mtkmjratg7" path="res://scenes/colliders/damage_receiver.tscn" id="4_2qjml"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bdar"]
 radius = 2.0
-height = 16.0
+height = 12.0
 
 [node name="Character" type="CharacterBody2D" unique_id=928944361]
 collision_layer = 0
@@ -28,4 +29,7 @@ shape = SubResource("CapsuleShape2D_1bdar")
 
 [node name="DamageEmitter" parent="." unique_id=921863792 instance=ExtResource("3_e22cc")]
 
+[node name="DamageReceiver" parent="." unique_id=1720363142 instance=ExtResource("4_2qjml")]
+
 [editable path="DamageEmitter"]
+[editable path="DamageReceiver"]
