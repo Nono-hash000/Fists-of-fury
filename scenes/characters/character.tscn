@@ -13,6 +13,16 @@ height = 12.0
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_1bdar")
+can_respawn = null
+damage = null
+damage_power = null
+duration_grounded = null
+flight_speed = null
+jump_intensity = null
+knockback_intensity = null
+knockdown_intensity = null
+max_health = null
+speed = null
 
 [node name="ShadowSprite" type="Sprite2D" parent="." unique_id=1196661479]
 texture = ExtResource("2_e22cc")
@@ -31,5 +41,8 @@ shape = SubResource("CapsuleShape2D_1bdar")
 
 [node name="DamageReceiver" parent="." unique_id=1720363142 instance=ExtResource("4_2qjml")]
 
+[node name="CollateralDamageEmitter" parent="." unique_id=1518287164 instance=ExtResource("3_e22cc")]
+
 [editable path="DamageEmitter"]
 [editable path="DamageReceiver"]
+[editable path="CollateralDamageEmitter"]
