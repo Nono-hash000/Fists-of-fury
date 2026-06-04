@@ -42,6 +42,8 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleSensor" unique_id=107542630]
 
+[node name="GunSprite" type="Sprite2D" parent="." unique_id=247944687]
+
 [editable path="DamageEmitter"]
 [editable path="DamageReceiver"]
 [editable path="CollateralDamageEmitter"]

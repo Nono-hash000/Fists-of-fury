@@ -11,6 +11,7 @@ const GRAVITY := 600.0
 @export var duration_between_knife_respawn : int
 @export var flight_speed : float
 @export var has_knife : bool
+@export var has_gun : bool
 @export var jump_intensity : float
 @export var knockback_intensity : float
 @export var knockdown_intensity : float
@@ -247,4 +248,3 @@ func on_wall_hit(_wall: AnimatableBody2D) -> void:
 	state = State.FALL
 	height_speed = knockback_intensity
 	velocity = -velocity / 2.0
-	
