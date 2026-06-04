@@ -17,6 +17,11 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Fists of Fury"
 run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="uid://c26kceqmqpeav"
+
+[autoload]
+
+EntityManager="*uid://c3xewf5p8n0jo"
 
 [debug]
 
