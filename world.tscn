@@ -1,55 +1,64 @@
 [gd_scene format=3 uid="uid://citeaijb61k5u"]
 
-[ext_resource type="PackedScene" uid="uid://cs2dtbxi316ci" path="res://scenes/stage/stage.tscn" id="1_f3sb7"]
-[ext_resource type="Script" uid="uid://ngyudfhqy6ot" path="res://world.gd" id="1_tlwt5"]
-[ext_resource type="PackedScene" uid="uid://t3un82prvs88" path="res://scenes/characters/player.tscn" id="2_fj7yv"]
-[ext_resource type="PackedScene" uid="uid://60cqai1rkb80" path="res://scenes/props/barrel.tscn" id="4_aqk2v"]
-[ext_resource type="PackedScene" uid="uid://g4xr1kkwmhi2" path="res://scenes/characters/basic_enemy.tscn" id="5_036b0"]
+[ext_resource type="Script" uid="uid://ngyudfhqy6ot" path="res://world.gd" id="1_58n65"]
+[ext_resource type="PackedScene" uid="uid://df3rikr3va82q" path="res://scenes/stage/stage.tscn" id="1_ea3cy"]
+[ext_resource type="PackedScene" uid="uid://cvr6opvp31hp6" path="res://scenes/characters/player.tscn" id="2_fso2d"]
+[ext_resource type="PackedScene" uid="uid://qilhs2wt8rl8" path="res://scenes/props/barrel.tscn" id="4_cs001"]
+[ext_resource type="PackedScene" uid="uid://ba7x8fhqs3fta" path="res://scenes/characters/basic_enemy.tscn" id="5_15mmh"]
+[ext_resource type="PackedScene" uid="uid://clqck6kawlwhi" path="res://scenes/props/knife.tscn" id="6_4co1t"]
+[ext_resource type="PackedScene" uid="uid://coqpwuyqvo82" path="res://scenes/characters/goon_enemy.tscn" id="7_xjatk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktcqf"]
 size = Vector2(6, 64)
 
-[node name="World" type="Node2D" unique_id=554948286]
-script = ExtResource("1_tlwt5")
+[node name="World" type="Node2D" unique_id=1174138656]
+script = ExtResource("1_58n65")
 
-[node name="Stage" parent="." unique_id=1594216567 instance=ExtResource("1_f3sb7")]
+[node name="Stage" parent="." unique_id=829165316 instance=ExtResource("1_ea3cy")]
 
-[node name="Camera" type="Camera2D" parent="." unique_id=1973586953]
+[node name="Camera" type="Camera2D" parent="." unique_id=230933498]
 position = Vector2(50, 32)
 
-[node name="InvisibleWalls" type="Node2D" parent="Camera" unique_id=237130517]
+[node name="InvisibleWalls" type="Node2D" parent="Camera" unique_id=1971441613]
 position = Vector2(-50, -32)
 
-[node name="LeftWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls" unique_id=271947247]
+[node name="LeftWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls" unique_id=180406694]
+collision_layer = 128
+collision_mask = 0
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/LeftWall" unique_id=1334252680]
 position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_ktcqf")
+
+[node name="RightWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls" unique_id=656819936]
+position = Vector2(100, 0)
 collision_layer = 128
 collision_mask = 0
 sync_to_physics = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/LeftWall" unique_id=126391285]
-shape = SubResource("RectangleShape2D_tlwt5")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/RightWall" unique_id=1244925676]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_ktcqf")
 
-[node name="RightWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls" unique_id=715445844]
-position = Vector2(100, 32)
-collision_layer = 128
-collision_mask = 0
-sync_to_physics = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/RightWall" unique_id=2072165914]
-shape = SubResource("RectangleShape2D_tlwt5")
-
-[node name="ActorsContainer" type="Node2D" parent="." unique_id=174655161]
+[node name="ActorsContainer" type="Node2D" parent="." unique_id=1946728525]
 y_sort_enabled = true
 
-[node name="Player" parent="ActorsContainer" unique_id=928944361 instance=ExtResource("2_fj7yv")]
-position = Vector2(60, 34)
+[node name="Player" parent="ActorsContainer" unique_id=2034808355 instance=ExtResource("2_fso2d")]
+position = Vector2(36, 46)
 has_knife = true
 
-[node name="Barrel" parent="ActorsContainer" unique_id=1944909504 instance=ExtResource("4_aqk2v")]
-position = Vector2(81, 55)
+[node name="Barrel" parent="ActorsContainer" unique_id=905542375 instance=ExtResource("4_cs001")]
+position = Vector2(61, 47)
 
-[node name="BasicEnemy" parent="ActorsContainer" unique_id=1556495657 node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
-position = Vector2(56, 70)
+[node name="BasicEnemy" parent="ActorsContainer" unique_id=474776827 node_paths=PackedStringArray("player") instance=ExtResource("5_15mmh")]
+position = Vector2(67, 58)
 player = NodePath("../Player")
-can_respawn_knives = true
 duration_between_knife_respawn = 2000
+
+[node name="Knife" parent="ActorsContainer" unique_id=481881989 instance=ExtResource("6_4co1t")]
+position = Vector2(21, 52)
+
+[node name="GoonEnemy" parent="ActorsContainer" unique_id=235009453 node_paths=PackedStringArray("player") instance=ExtResource("7_xjatk")]
+position = Vector2(88, 37)
+player = NodePath("../Player")

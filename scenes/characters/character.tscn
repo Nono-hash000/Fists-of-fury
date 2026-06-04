@@ -1,43 +1,44 @@
-[gd_scene format=3 uid="uid://dcgyyjhivtdhf"]
+[gd_scene load_steps=5 format=3 uid="uid://h4wo2mqnh48o"]
 
-[ext_resource type="Script" uid="uid://bstqny1yyxunj" path="res://scenes/characters/character.gd" id="1_1bdar"]
-[ext_resource type="Texture2D" uid="uid://cj0ymie7t6a2b" path="res://assets/art/characters/shadow.png" id="2_e22cc"]
-[ext_resource type="PackedScene" uid="uid://cwl1jdlf5m1o7" path="res://scenes/colliders/damage_emitter.tscn" id="3_e22cc"]
-[ext_resource type="PackedScene" uid="uid://c20mtkmjratg7" path="res://scenes/colliders/damage_receiver.tscn" id="4_2qjml"]
+[ext_resource type="Script" path="res://scenes/characters/character.gd" id="1_cqjif"]
+[ext_resource type="Texture2D" uid="uid://d0jo43xa8ljw5" path="res://assets/art/characters/shadow.png" id="2_6rngr"]
+[ext_resource type="PackedScene" uid="uid://igvpyuo4p64v" path="res://scenes/colliders/damage_emitter.tscn" id="3_3jpht"]
+[ext_resource type="PackedScene" uid="uid://cxwu25dw6bfp2" path="res://scenes/colliders/damage_receiver.tscn" id="4_8fmer"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bdar"]
-radius = 2.0
-height = 12.0
-
-[node name="Character" type="CharacterBody2D" unique_id=928944361]
+[node name="Character" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("1_1bdar")
+script = ExtResource("1_cqjif")
 
-[node name="ShadowSprite" type="Sprite2D" parent="." unique_id=1196661479]
-texture = ExtResource("2_e22cc")
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_6rngr")
 centered = false
 offset = Vector2(-7, 0)
 
-[node name="CharacterSprite" type="Sprite2D" parent="." unique_id=103508485]
+[node name="CharacterSprite" type="Sprite2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1829860694]
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_1bdar")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1635661262]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[node name="DamageEmitter" parent="." unique_id=921863792 instance=ExtResource("3_e22cc")]
+[node name="DamageEmitter" parent="." instance=ExtResource("3_3jpht")]
 
-[node name="DamageReceiver" parent="." unique_id=1720363142 instance=ExtResource("4_2qjml")]
+[node name="DamageReceiver" parent="." instance=ExtResource("4_8fmer")]
 
-[node name="CollateralDamageEmitter" parent="." unique_id=1518287164 instance=ExtResource("3_e22cc")]
+[node name="CollateralDamageEmitter" parent="." instance=ExtResource("3_3jpht")]
 
-[node name="KnifeSprite" type="Sprite2D" parent="." unique_id=1321749502]
+[node name="KnifeSprite" type="Sprite2D" parent="."]
 
-[node name="ProjectileAim" type="RayCast2D" parent="." unique_id=2019099663]
+[node name="ProjectileAim" type="RayCast2D" parent="."]
 target_position = Vector2(100, 0)
 collision_mask = 0
+
+[node name="CollectibleSensor" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleSensor"]
 
 [editable path="DamageEmitter"]
 [editable path="DamageReceiver"]

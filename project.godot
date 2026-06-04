@@ -8,12 +8,15 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Fists of Fury"
-run/main_scene="uid://citeaijb61k5u"
+run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="uid://c26kceqmqpeav"
 
 [debug]
 
@@ -68,11 +71,11 @@ ui_down={
 }
 attack={
 "deadzone": 0.2,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(469, 23),"global_position":Vector2(481, 83),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(584, 16),"global_position":Vector2(596, 76),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 jump={
-"deadzone": 0.2,
+"deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
 ]
 }
@@ -82,11 +85,12 @@ jump={
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
-2d_physics/layer_4="Destructibles"
+2d_physics/layer_4="Descructibles"
 2d_physics/layer_5="PlayerDamageReceiver"
 2d_physics/layer_6="EnemyDamageReceiver"
-2d_physics/layer_7="DestructibleDamageRec"
+2d_physics/layer_7="DestructiblesDamageReceiver"
 2d_physics/layer_8="InvisibleWalls"
+2d_physics/layer_9="Collectibles"
 
 [physics]
 

@@ -9,5 +9,5 @@ func is_free() -> bool:
 func free_up() -> void:
 	occupant = null
 
-func occupy(enemy : BasicEnemy) -> void:
+func occupy(enemy: BasicEnemy) -> void:
 	occupant = enemy

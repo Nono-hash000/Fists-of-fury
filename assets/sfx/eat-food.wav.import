@@ -2,7 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://dl818xq3wiex1"
+uid="uid://b3y6kwixk3bo0"
 path="res://.godot/imported/eat-food.wav-8627957bd497dcbd1270f714143b7521.sample"
 
 [deps]
@@ -21,4 +21,4 @@ edit/normalize=false
 edit/loop_mode=0
 edit/loop_begin=0
 edit/loop_end=-1
-compress/mode=2
+compress/mode=0

@@ -5,7 +5,7 @@ extends Character
 
 func _ready() -> void:
 	super._ready()
-	anim_attacks= ["punch", "punch_alt", "kick", "roundkick"]
+	anim_attacks = ["punch", "punch_alt", "kick", "roundkick"]
 
 func handle_input() -> void:
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -14,12 +14,15 @@ func handle_input() -> void:
 		if has_knife:
 			state = State.THROW
 		else:
-			state = State.ATTACK
-			if is_last_hit_successful:
-				attack_combo_index = (attack_combo_index + 1) % anim_attacks.size()
-				is_last_hit_successful = false
+			if can_pickup_collectible():
+				state = State.PICKUP
 			else:
-				attack_combo_index = 0
+				state = State.ATTACK
+				if is_last_hit_successful:
+					attack_combo_index = (attack_combo_index + 1) % anim_attacks.size()
+					is_last_hit_successful = false
+				else:
+					attack_combo_index = 0
 	if can_jump() and Input.is_action_just_pressed("jump"):
 		state = State.TAKEOFF
 	if can_jumpkick() and Input.is_action_just_pressed("attack"):
@@ -30,7 +33,7 @@ func set_heading() -> void:
 		heading = Vector2.RIGHT
 	elif velocity.x < 0:
 		heading = Vector2.LEFT
-
+		
 func reserve_slot(enemy: BasicEnemy) -> EnemySlot:
 	var available_slots := enemy_slots.filter(
 		func(slot): return slot.is_free()

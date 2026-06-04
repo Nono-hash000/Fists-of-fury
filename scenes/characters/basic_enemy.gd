@@ -11,35 +11,34 @@ const EDGE_SCREEN_BUFFER := 10
 
 var player_slot : EnemySlot = null
 var time_since_last_melee_attack := Time.get_ticks_msec()
-var time_since_last_range_attack := Time.get_ticks_msec()
 var time_since_prep_melee_attack := Time.get_ticks_msec()
+var time_since_last_range_attack := Time.get_ticks_msec()
 var time_since_prep_range_attack := Time.get_ticks_msec()
 
 func _ready() -> void:
 	super._ready()
 	anim_attacks = ["punch", "punch_alt"]
-
+	
 func handle_input() -> void:
 	if player != null and can_move():
-		if can_respawn_knives:
+		if can_respawn_knives or has_knife:
 			goto_range_position()
 		else:
 			goto_melee_position()
 
-func goto_range_position()-> void:
+func goto_range_position() -> void:
 	var camera := get_viewport().get_camera_2d()
 	var screen_width := get_viewport_rect().size.x
-	var screen_letf_edge := camera.position.x - screen_width / 2
+	var screen_left_edge := camera.position.x - screen_width / 2
 	var screen_right_edge := camera.position.x + screen_width / 2
 	
-	var left_destination := Vector2(screen_letf_edge + EDGE_SCREEN_BUFFER, player.position.y)
+	var left_destination := Vector2(screen_left_edge + EDGE_SCREEN_BUFFER, player.position.y)
 	var right_destination := Vector2(screen_right_edge - EDGE_SCREEN_BUFFER, player.position.y)
 	var closest_destination := Vector2.ZERO
 	if (left_destination - position).length() < (right_destination - position).length():
 		closest_destination = left_destination
 	else:
 		closest_destination = right_destination
-	
 	if (closest_destination - position).length() < 1:
 		velocity = Vector2.ZERO
 	else:
@@ -51,18 +50,23 @@ func goto_range_position()-> void:
 		time_since_last_range_attack = Time.get_ticks_msec()
 
 func goto_melee_position() -> void:
-	if player_slot == null:
-		player_slot = player.reserve_slot(self)
-		
+	if can_pickup_collectible():
+		state = State.PICKUP
 		if player_slot != null:
-			var direction := (player_slot.global_position - global_position).normalized()
-			if is_player_within_range():
-				velocity = Vector2.ZERO
-				if can_attack():
-					state = State.PREP_ATTACK
-					time_since_prep_melee_attack = Time.get_ticks_msec()
-			else:
-				velocity = direction * speed
+			player.free_slot(self)
+	elif player_slot == null:
+		player_slot = player.reserve_slot(self)
+	
+	if player_slot != null:
+		var direction := (player_slot.global_position - global_position).normalized()
+		if is_player_within_range():
+			velocity = Vector2.ZERO
+			if can_attack():
+				state = State.PREP_ATTACK
+				time_since_prep_melee_attack = Time.get_ticks_msec()
+		else:
+			velocity = direction * speed
+	
 
 func handle_prep_attack() -> void:
 	if state == State.PREP_ATTACK and (Time.get_ticks_msec() - time_since_prep_melee_attack > duration_prep_melee_attack):
