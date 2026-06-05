@@ -4,10 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://df3rikr3va82q" path="res://scenes/stage/stage.tscn" id="1_ea3cy"]
 [ext_resource type="PackedScene" uid="uid://cvr6opvp31hp6" path="res://scenes/characters/player.tscn" id="2_fso2d"]
 [ext_resource type="Script" uid="uid://c6xsj78aynpvp" path="res://scenes/stage/actors_container.gd" id="3_gbfbk"]
-[ext_resource type="PackedScene" uid="uid://qilhs2wt8rl8" path="res://scenes/props/barrel.tscn" id="4_cs001"]
-[ext_resource type="PackedScene" uid="uid://ba7x8fhqs3fta" path="res://scenes/characters/basic_enemy.tscn" id="5_15mmh"]
-[ext_resource type="PackedScene" uid="uid://coqpwuyqvo82" path="res://scenes/characters/goon_enemy.tscn" id="7_xjatk"]
-[ext_resource type="PackedScene" uid="uid://ccmd3mc7d2t1t" path="res://scenes/characters/thug_enemy.tscn" id="8_gbfbk"]
+[ext_resource type="PackedScene" uid="uid://cvsqg6ohomkq1" path="res://scenes/characters/igor_boss.tscn" id="5_036b0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktcqf"]
 size = Vector2(6, 64)
@@ -49,18 +46,6 @@ script = ExtResource("3_gbfbk")
 [node name="Player" parent="ActorsContainer" unique_id=2034808355 instance=ExtResource("2_fso2d")]
 position = Vector2(33, 46)
 
-[node name="Barrel" parent="ActorsContainer" unique_id=905542375 instance=ExtResource("4_cs001")]
-position = Vector2(61, 47)
-content_type = 2
-
-[node name="BasicEnemy" parent="ActorsContainer" unique_id=1725195730 node_paths=PackedStringArray("player") instance=ExtResource("5_15mmh")]
-position = Vector2(89, 39)
-player = NodePath("../Player")
-
-[node name="GoonEnemy" parent="ActorsContainer" unique_id=235009453 node_paths=PackedStringArray("player") instance=ExtResource("7_xjatk")]
-position = Vector2(78, 59)
-player = NodePath("../Player")
-
-[node name="ThugEnemy" parent="ActorsContainer" unique_id=610263608 node_paths=PackedStringArray("player") instance=ExtResource("8_gbfbk")]
-position = Vector2(-13, 43)
+[node name="IgorBoss" parent="ActorsContainer" unique_id=68909883 node_paths=PackedStringArray("player") instance=ExtResource("5_036b0")]
+position = Vector2(76, 44)
 player = NodePath("../Player")
