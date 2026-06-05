@@ -22,6 +22,7 @@ config/icon="uid://c26kceqmqpeav"
 [autoload]
 
 EntityManager="*uid://c3xewf5p8n0jo"
+StageManager="*uid://bquli04yaqene"
 
 [debug]
 

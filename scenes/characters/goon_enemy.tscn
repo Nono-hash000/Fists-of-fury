@@ -736,6 +736,7 @@ flight_speed = 120.0
 has_knife = true
 knockdown_intensity = 80.0
 max_health = 18
+type = 2
 
 [node name="CharacterSprite" parent="." index="1" unique_id=1607744924]
 texture = ExtResource("2_w4itl")
@@ -744,6 +745,9 @@ texture = ExtResource("2_w4itl")
 libraries/ = SubResource("AnimationLibrary_nahco")
 
 [node name="DamageEmitter" parent="." index="4" unique_id=654507529]
+monitoring = false
+
+[node name="CollateralDamageEmitter" parent="." index="6" unique_id=1220420159]
 monitoring = false
 
 [editable path="DamageEmitter"]
