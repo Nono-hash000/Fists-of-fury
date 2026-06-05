@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ccmd3mc7d2t1t"]
+
+[ext_resource type="PackedScene" uid="uid://ba7x8fhqs3fta" path="res://scenes/characters/basic_enemy.tscn" id="1_qlivg"]
+[ext_resource type="Texture2D" uid="uid://o58ey0voitov" path="res://assets/art/characters/enemy_thug.png" id="2_0vkad"]
+
+[node name="ThugEnemy" unique_id=1725195730 instance=ExtResource("1_qlivg")]
+duration_between_melee_attacks = 1500
+duration_between_range_attacks = 2500
+damage = 3
+duration_grounded = 1300.0
+has_gun = true
+
+[node name="CharacterSprite" parent="." index="1" unique_id=1607744924]
+texture = ExtResource("2_0vkad")
+
+[editable path="DamageEmitter"]
+[editable path="DamageReceiver"]
+[editable path="CollateralDamageEmitter"]

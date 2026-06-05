@@ -6,9 +6,8 @@
 [ext_resource type="Script" uid="uid://c6xsj78aynpvp" path="res://scenes/stage/actors_container.gd" id="3_gbfbk"]
 [ext_resource type="PackedScene" uid="uid://qilhs2wt8rl8" path="res://scenes/props/barrel.tscn" id="4_cs001"]
 [ext_resource type="PackedScene" uid="uid://ba7x8fhqs3fta" path="res://scenes/characters/basic_enemy.tscn" id="5_15mmh"]
-[ext_resource type="PackedScene" uid="uid://clqck6kawlwhi" path="res://scenes/props/knife.tscn" id="6_4co1t"]
 [ext_resource type="PackedScene" uid="uid://coqpwuyqvo82" path="res://scenes/characters/goon_enemy.tscn" id="7_xjatk"]
-[ext_resource type="PackedScene" uid="uid://l153x3scsqxk" path="res://scenes/props/shot.tscn" id="9_ioo17"]
+[ext_resource type="PackedScene" uid="uid://ccmd3mc7d2t1t" path="res://scenes/characters/thug_enemy.tscn" id="8_gbfbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktcqf"]
 size = Vector2(6, 64)
@@ -49,26 +48,19 @@ script = ExtResource("3_gbfbk")
 
 [node name="Player" parent="ActorsContainer" unique_id=2034808355 instance=ExtResource("2_fso2d")]
 position = Vector2(33, 46)
-has_gun = true
 
 [node name="Barrel" parent="ActorsContainer" unique_id=905542375 instance=ExtResource("4_cs001")]
 position = Vector2(61, 47)
+content_type = 2
 
-[node name="BasicEnemy" parent="ActorsContainer" unique_id=474776827 node_paths=PackedStringArray("player") instance=ExtResource("5_15mmh")]
-position = Vector2(67, 58)
+[node name="BasicEnemy" parent="ActorsContainer" unique_id=1725195730 node_paths=PackedStringArray("player") instance=ExtResource("5_15mmh")]
+position = Vector2(89, 39)
 player = NodePath("../Player")
-duration_between_knife_respawn = 2000
-
-[node name="Knife" parent="ActorsContainer" unique_id=481881989 instance=ExtResource("6_4co1t")]
-position = Vector2(21, 52)
 
 [node name="GoonEnemy" parent="ActorsContainer" unique_id=235009453 node_paths=PackedStringArray("player") instance=ExtResource("7_xjatk")]
-position = Vector2(88, 37)
+position = Vector2(78, 59)
 player = NodePath("../Player")
-can_respawn_knives = false
-has_knife = false
-has_gun = true
 
-[node name="Shot" parent="ActorsContainer" unique_id=1383071784 instance=ExtResource("9_ioo17")]
-position = Vector2(46, 47)
-points = PackedVector2Array(0, -14, 100, -14)
+[node name="ThugEnemy" parent="ActorsContainer" unique_id=610263608 node_paths=PackedStringArray("player") instance=ExtResource("8_gbfbk")]
+position = Vector2(-13, 43)
+player = NodePath("../Player")

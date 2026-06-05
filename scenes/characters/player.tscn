@@ -909,6 +909,8 @@ size = Vector2(3, 3)
 collision_layer = 2
 collision_mask = 137
 script = ExtResource("2_1d5f1")
+max_duration_between_successful_hits = 2000
+autodestroy_on_drop = true
 can_respawn = true
 damage = 4
 damage_gunshot = 8
@@ -917,6 +919,7 @@ duration_grounded = 1000.0
 jump_intensity = 150.0
 knockback_intensity = 10.0
 knockdown_intensity = 70.0
+max_ammo_per_gun = 5
 max_health = 30
 speed = 35.0
 
