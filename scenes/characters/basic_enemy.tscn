@@ -719,6 +719,7 @@ duration_between_range_attacks = 4000
 duration_prep_melee_attack = 500
 duration_prep_range_attack = 500
 damage = 2
+damage_gunshot = 5
 duration_grounded = 1000.0
 flight_speed = 100.0
 knockback_intensity = 10.0

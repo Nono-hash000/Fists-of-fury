@@ -911,6 +911,7 @@ collision_mask = 137
 script = ExtResource("2_1d5f1")
 can_respawn = true
 damage = 4
+damage_gunshot = 8
 damage_power = 6
 duration_grounded = 1000.0
 jump_intensity = 150.0
@@ -973,6 +974,9 @@ frame = 80
 
 [node name="WeaponPosition" parent="KnifeSprite" index="0" unique_id=1196887842]
 position = Vector2(18, -14)
+
+[node name="ProjectileAim" parent="." index="9" unique_id=378737297]
+collision_mask = 12
 
 [node name="CollectibleSensor" parent="." index="10" unique_id=824095031]
 collision_mask = 256
