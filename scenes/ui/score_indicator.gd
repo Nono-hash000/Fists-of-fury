@@ -8,8 +8,8 @@ var prior_score := 0
 var real_score := 0
 var time_start_update := Time.get_ticks_msec()
 
+
 func _ready() -> void:
-	displayed_score = 0
 	refresh()
 
 func add_combo(points: int) -> void:
@@ -29,3 +29,4 @@ func _process(_delta: float) -> void:
 
 func refresh() -> void:
 	text = str(displayed_score)
+	

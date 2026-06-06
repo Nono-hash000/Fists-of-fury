@@ -17,14 +17,16 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Fists of Fury"
 run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="uid://c26kceqmqpeav"
+config/icon="res://icon.svg"
 
 [autoload]
 
-EntityManager="*uid://c3xewf5p8n0jo"
-StageManager="*uid://bquli04yaqene"
-DamageManager="*uid://bsay8l2disa7m"
-ComboManager="*uid://hhlomjv0m0o2"
+EntityManager="*res://utils/entity_manager.gd"
+StageManager="*res://utils/stage_manager.gd"
+DamageManager="*res://utils/damage_manager.gd"
+ComboManager="*res://utils/combo_manager.gd"
+MusicPlayer="*res://utils/music_player.tscn"
+SoundPlayer="*res://utils/sound_player.tscn"
 
 [debug]
 
@@ -78,13 +80,15 @@ ui_down={
 ]
 }
 attack={
-"deadzone": 0.2,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(584, 16),"global_position":Vector2(596, 76),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":67,"key_label":0,"unicode":99,"location":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(391, 11),"global_position":Vector2(403, 71),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 jump={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":88,"key_label":0,"unicode":120,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
 ]
 }
 
@@ -100,13 +104,8 @@ jump={
 2d_physics/layer_8="InvisibleWalls"
 2d_physics/layer_9="Collectibles"
 
-[physics]
-
-3d/physics_engine="Jolt Physics"
-
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

@@ -3,24 +3,28 @@ extends CharacterBody2D
 
 const GRAVITY := 600.0
 
-@export var autodestroy_on_drop : bool
 @export var can_respawn : bool
-@export var can_respawn_knives : bool
 @export var damage : int
-@export var damage_gunshot : int
-@export var damage_power : int
+@export var max_health : int
+@export var type : Type
+
+@export_group("Movement")
 @export var duration_grounded: float
-@export var duration_between_knife_respawn : int
 @export var flight_speed : float
-@export var has_knife : bool
-@export var has_gun : bool
 @export var jump_intensity : float
 @export var knockback_intensity : float
 @export var knockdown_intensity : float
-@export var max_ammo_per_gun : int
-@export var max_health : int
 @export var speed : float
-@export var type : Type
+
+@export_group("Weapons")
+@export var autodestroy_on_drop : bool
+@export var can_respawn_knives : bool
+@export var damage_gunshot : int
+@export var damage_power : int
+@export var duration_between_knife_respawn : int
+@export var has_knife : bool
+@export var has_gun : bool
+@export var max_ammo_per_gun : int
 
 @onready var animation_player := $AnimationPlayer
 @onready var character_sprite := $CharacterSprite
@@ -29,17 +33,16 @@ const GRAVITY := 600.0
 @onready var collision_shape := $CollisionShape2D
 @onready var damage_emitter := $DamageEmitter
 @onready var damage_receiver : DamageReceiver = $DamageReceiver
-@onready var gun_sprite: Sprite2D = $GunSprite
+@onready var gun_sprite : Sprite2D = $GunSprite
 @onready var knife_sprite : Sprite2D = $KnifeSprite
 @onready var projectile_aim : RayCast2D = $ProjectileAim
-@onready var weapon_position: Node2D = $KnifeSprite/WeaponPosition
+@onready var weapon_position : Node2D = $KnifeSprite/WeaponPosition
 
 enum State {IDLE, WALK, ATTACK, TAKEOFF, JUMP, LAND, JUMPKICK, HURT, FALL, GROUNDED, DEATH, FLY, PREP_ATTACK, THROW, PICKUP, SHOOT, PREP_SHOOT, RECOVER, DROP, WAIT, APPEARING}
 enum Type {PLAYER, PUNK, GOON, THUG, BOUNCER}
+
 var ammo_left := 0
-
 var anim_attacks := []
-
 var anim_map := {
 	State.IDLE: "idle",
 	State.WALK: "walk",
@@ -60,11 +63,9 @@ var anim_map := {
 	State.PREP_SHOOT: "idle",
 	State.RECOVER: "recover",
 	State.DROP: "idle",
-	State.WAIT: "idle",
+	State.WAIT: "wait",
 	State.APPEARING: "idle",
-	
 }
-
 var attack_combo_index := 0
 var current_health := 0
 var heading := Vector2.RIGHT
@@ -199,7 +200,7 @@ func can_jumpkick() -> bool:
 	
 func can_get_hurt() -> bool:
 	return [State.IDLE, State.WALK, State.TAKEOFF, State.LAND, State.PREP_ATTACK].has(state)
- 
+
 func is_attacking() -> bool:
 	return [State.ATTACK, State.JUMPKICK].has(state)
 
@@ -226,15 +227,16 @@ func can_pickup_collectible() -> bool:
 func shoot_gun() -> void:
 	state = State.SHOOT
 	velocity = Vector2.ZERO
-	var target_point = heading * (global_position.x + get_viewport_rect().size.x)
+	var target_point := heading * (global_position.x + get_viewport_rect().size.x)
 	var target := projectile_aim.get_collider()
 	if target != null:
 		target_point = projectile_aim.get_collision_point()
 		target.on_receive_damage(damage_gunshot, heading, DamageReceiver.HitType.KNOCKDOWN)
-		EntityManager.spawn_spark.emit(position)
+		EntityManager.spawn_spark.emit(target.position)
+	SoundPlayer.play(SoundManager.Sound.GUNSHOT)
 	var weapon_root_position := Vector2(weapon_position.global_position.x, position.y)
 	var weapon_height := -weapon_position.position.y
-	var distance : float = target_point.x - weapon_position.global_position.x
+	var distance := target_point.x - weapon_position.global_position.x
 	EntityManager.spawn_shot.emit(weapon_root_position, distance, weapon_height)
 
 func pickup_collectible() -> void:
@@ -243,13 +245,16 @@ func pickup_collectible() -> void:
 		var collectible : Collectible = collectible_areas[0]
 		if collectible.type == Collectible.Type.KNIFE and not has_knife:
 			has_knife = true
+			SoundPlayer.play(SoundManager.Sound.SWOOSH)
 		if collectible.type == Collectible.Type.GUN and not has_gun:
 			has_gun = true
 			ammo_left = max_ammo_per_gun
+			SoundPlayer.play(SoundManager.Sound.SWOOSH)
 		if collectible.type == Collectible.Type.FOOD:
 			set_health(max_health)
+			SoundPlayer.play(SoundManager.Sound.FOOD)
 		collectible.queue_free()
-
+		
 func is_collision_disabled() -> bool:
 	return [State.GROUNDED, State.DEATH, State.FLY].has(state)
 
@@ -264,6 +269,7 @@ func on_throw_complete() -> void:
 		has_gun = false
 	else:
 		has_knife = false
+	SoundPlayer.play(SoundManager.Sound.SWOOSH)
 	var collectible_global_position := Vector2(weapon_position.global_position.x, global_position.y)
 	var collectible_height := -weapon_position.position.y
 	EntityManager.spawn_collectible.emit(collectible_type, Collectible.State.FLY, collectible_global_position, heading, collectible_height, false)
@@ -271,6 +277,7 @@ func on_throw_complete() -> void:
 func on_takeoff_complete() -> void:
 	state = State.JUMP
 	height_speed = jump_intensity
+	SoundPlayer.play(SoundManager.Sound.SWOOSH)
 
 func on_pickup_complete() -> void:
 	state = State.IDLE
@@ -291,13 +298,16 @@ func on_receive_damage(amount: int, direction: Vector2, hit_type: DamageReceiver
 			has_gun = false
 			EntityManager.spawn_collectible.emit(Collectible.Type.GUN, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_on_drop)
 		set_health(current_health - amount)
+		SoundPlayer.play(SoundManager.Sound.HIT2, true)
 		if current_health == 0 or hit_type == DamageReceiver.HitType.KNOCKDOWN:
 			state = State.FALL
 			height_speed = knockdown_intensity
 			velocity = direction * knockback_intensity
+			DamageManager.heavy_blow_received.emit()
 		elif hit_type == DamageReceiver.HitType.POWER:
 			state = State.FLY
 			velocity = direction * flight_speed
+			DamageManager.heavy_blow_received.emit()
 		else:
 			state = State.HURT
 			velocity = direction * knockback_intensity
@@ -321,9 +331,9 @@ func on_emit_collateral_damage(receiver: DamageReceiver) -> void:
 
 func on_wall_hit(_wall: AnimatableBody2D) -> void:
 	state = State.FALL
-	height_speed = knockback_intensity
+	height_speed = knockdown_intensity
 	velocity = -velocity / 2.0
-
+	
 func set_health(health: int, is_emitting_signal: bool = true) -> void:
 	current_health = clamp(health, 0, max_health)
 	if is_emitting_signal:

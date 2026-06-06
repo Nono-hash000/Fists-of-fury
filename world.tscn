@@ -1,52 +1,55 @@
-[gd_scene format=3 uid="uid://citeaijb61k5u"]
+[gd_scene format=3 uid="uid://uqrqng3qanfq"]
 
-[ext_resource type="Script" uid="uid://ngyudfhqy6ot" path="res://world.gd" id="1_58n65"]
-[ext_resource type="PackedScene" uid="uid://bd2palfnebeio" path="res://scenes/ui/ui.tscn" id="2_036b0"]
+[ext_resource type="Script" uid="uid://dvdft18f22sve" path="res://world.gd" id="1_58n65"]
 [ext_resource type="PackedScene" uid="uid://cvr6opvp31hp6" path="res://scenes/characters/player.tscn" id="2_fso2d"]
-[ext_resource type="Script" uid="uid://c6xsj78aynpvp" path="res://scenes/stage/actors_container.gd" id="3_gbfbk"]
-[ext_resource type="PackedScene" uid="uid://b73t0g0gs2l5x" path="res://scenes/stage/stage_01_streets.tscn" id="5_dwbse"]
+[ext_resource type="PackedScene" uid="uid://ch23ufr1x5ey4" path="res://scenes/ui/ui.tscn" id="2_lmtw4"]
+[ext_resource type="Script" uid="uid://cjs42lvymr77m" path="res://scenes/stage/actors_container.gd" id="3_1ub62"]
+[ext_resource type="Script" uid="uid://c6pp5i1ose1ol" path="res://scenes/stage/camera.gd" id="4_tj0xi"]
+[ext_resource type="PackedScene" uid="uid://dwkq72aytt2bu" path="res://scenes/stage/stage_01_streets.tscn" id="5_xnh8a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktcqf"]
 size = Vector2(6, 64)
 
-[node name="World" type="Node2D" unique_id=1174138656]
+[node name="World" type="Node2D" unique_id=1710254482]
 script = ExtResource("1_58n65")
 
-[node name="UI" parent="." unique_id=1715625583 instance=ExtResource("2_036b0")]
+[node name="UI" parent="." unique_id=1935391453 instance=ExtResource("2_lmtw4")]
 
-[node name="Stage-01-Streets" parent="." unique_id=672385973 instance=ExtResource("5_dwbse")]
+[node name="Stage-01-Streets" parent="." unique_id=1742331999 instance=ExtResource("5_xnh8a")]
 
-[node name="Camera" type="Camera2D" parent="." unique_id=230933498]
+[node name="Camera" type="Camera2D" parent="." unique_id=1587234845]
 position = Vector2(50, 32)
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+script = ExtResource("4_tj0xi")
+duration_shake = 50
 
-[node name="InvisibleWalls" type="Node2D" parent="Camera" unique_id=1971441613]
+[node name="InvisibleWalls" type="Node2D" parent="Camera" unique_id=778440156]
 position = Vector2(-50, -32)
 
-[node name="LeftWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls" unique_id=180406694]
+[node name="LeftWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls" unique_id=1065901538]
 collision_layer = 128
 collision_mask = 0
 sync_to_physics = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/LeftWall" unique_id=1334252680]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/LeftWall" unique_id=1511873010]
 position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_ktcqf")
 
-[node name="RightWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls" unique_id=656819936]
+[node name="RightWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls" unique_id=527141335]
 position = Vector2(100, 0)
 collision_layer = 128
 collision_mask = 0
 sync_to_physics = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/RightWall" unique_id=1244925676]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/RightWall" unique_id=50782060]
 position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_ktcqf")
 
-[node name="ActorsContainer" type="Node2D" parent="." unique_id=1946728525 node_paths=PackedStringArray("player")]
+[node name="ActorsContainer" type="Node2D" parent="." unique_id=596615980 node_paths=PackedStringArray("player")]
 y_sort_enabled = true
-script = ExtResource("3_gbfbk")
+script = ExtResource("3_1ub62")
 player = NodePath("Player")
 
-[node name="Player" parent="ActorsContainer" unique_id=2034808355 instance=ExtResource("2_fso2d")]
-position = Vector2(33, 46)
-
-[editable path="UI"]
+[node name="Player" parent="ActorsContainer" unique_id=1191722872 instance=ExtResource("2_fso2d")]
+position = Vector2(36, 46)

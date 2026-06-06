@@ -11,10 +11,8 @@ var time_start := Time.get_ticks_msec()
 func initialize(distance: float, gun_height: float) -> void:
 	height = gun_height
 	shot_distance = distance
-	
 	add_point(Vector2(0, -height), 0)
 	add_point(Vector2(distance, -height), 1)
-	
 	duration_shot = abs(shot_distance) * duration_shot_across_screen / get_viewport_rect().size.x
 
 func _process(_delta: float) -> void:
@@ -24,3 +22,4 @@ func _process(_delta: float) -> void:
 	set_point_position(0, Vector2(new_x, -height))
 	if progress >= 1:
 		queue_free()
+	

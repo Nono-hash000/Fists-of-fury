@@ -5,7 +5,7 @@ const GRAVITY := 600.0
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var collectible_sprite : Sprite2D = $CollectibleSprite
-@onready var damage_emitter: Area2D = $DamageEmitter
+@onready var damage_emitter : Area2D = $DamageEmitter
 
 @export var autodestroy : bool
 @export var damage : int
@@ -21,7 +21,6 @@ var anim_map := {
 	State.GROUNDED: "grounded",
 	State.FLY: "fly",
 }
-
 var direction := Vector2.ZERO
 var height := 0.0
 var height_speed := 0.0
@@ -60,7 +59,7 @@ func handle_fall(delta) -> void:
 				queue_free()
 		else:
 			height_speed -= GRAVITY * delta
-
+		
 func on_emit_damage(receiver: DamageReceiver) -> void:
 	receiver.damage_received.emit(damage, direction, DamageReceiver.HitType.KNOCKDOWN)
 	EntityManager.spawn_spark.emit(position)

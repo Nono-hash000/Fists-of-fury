@@ -9,7 +9,7 @@ const DROP_HEIGHT := 50
 @export var global_position : Vector2
 @export var state : Character.State
 
-func _init(character_type: Character.Type = Character.Type.PUNK, position: Vector2 = Vector2.ZERO, assigned_door_index: int = -1) -> void:
+func _init(character_type : Character.Type = Character.Type.PUNK, position : Vector2 = Vector2.ZERO, assigned_door_index : int = -1) -> void:
 	door_index = assigned_door_index
 	type = character_type
 	if position.y < 0:

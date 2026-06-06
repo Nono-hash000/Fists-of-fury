@@ -68,22 +68,21 @@ func goto_range_position() -> void:
 	if can_range_attack() and has_gun and projectile_aim.is_colliding():
 		state = State.PREP_SHOOT
 		time_since_prep_range_attack = Time.get_ticks_msec()
-		time_since_last_range_attack = Time.get_ticks_msec()
-
-func handle_prep_shoot() -> void:
-	if state == State.PREP_SHOOT and (Time.get_ticks_msec() - time_since_prep_range_attack > duration_prep_range_attack):
-		shoot_gun()
-		time_since_last_range_attack = Time.get_ticks_msec()
 
 func assign_door(door: Door) -> void:
-	if door.state != Door.State.OPEN:
+	if door.state != Door.State.OPENED:
 		state = State.WAIT
 		door.open()
 		door.opened.connect(on_action_complete.bind())
 	else:
 		state = State.APPEARING
-		modulate.a = 0
 		time_since_start_appearing = Time.get_ticks_msec()
+		modulate.a = 0
+
+func handle_prep_shoot() -> void:
+	if state == State.PREP_SHOOT and (Time.get_ticks_msec() - time_since_prep_range_attack > duration_prep_range_attack):
+		shoot_gun()
+		time_since_last_range_attack = Time.get_ticks_msec()
 
 func goto_melee_position() -> void:
 	if can_pickup_collectible():
@@ -102,6 +101,7 @@ func goto_melee_position() -> void:
 				time_since_prep_melee_attack = Time.get_ticks_msec()
 		else:
 			velocity = direction * speed
+	
 
 func handle_prep_attack() -> void:
 	if state == State.PREP_ATTACK and (Time.get_ticks_msec() - time_since_prep_melee_attack > duration_prep_melee_attack):

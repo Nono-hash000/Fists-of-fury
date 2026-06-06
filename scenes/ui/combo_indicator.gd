@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 		combo_reset.emit(current_combo)
 		current_combo = 0
 		refresh()
-
+	
 func refresh() -> void:
 	text = "x" + str(current_combo)
 	visible = current_combo > 0

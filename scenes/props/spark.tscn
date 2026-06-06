@@ -1,23 +1,8 @@
-[gd_scene format=3 uid="uid://ddbywcwf0xt16"]
+[gd_scene load_steps=5 format=3 uid="uid://br6o1tkv3a1d3"]
 
-[ext_resource type="Texture2D" uid="uid://cv0cno4gim68b" path="res://assets/art/particles/spark.png" id="1_x455p"]
+[ext_resource type="Texture2D" uid="uid://cv0cno4gim68b" path="res://assets/art/particles/spark.png" id="1_1xvgg"]
 
-[sub_resource type="Animation" id="Animation_x455p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SparkSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_8ri7b"]
+[sub_resource type="Animation" id="Animation_mlmxn"]
 resource_name = "idle"
 length = 0.4
 step = 0.1
@@ -48,20 +33,37 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_541ub"]
-_data = {
-&"RESET": SubResource("Animation_x455p"),
-&"idle": SubResource("Animation_8ri7b")
+[sub_resource type="Animation" id="Animation_oo4r6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SparkSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
-[node name="Spark" type="Node2D" unique_id=989242416]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v8cvv"]
+_data = {
+"RESET": SubResource("Animation_oo4r6"),
+"idle": SubResource("Animation_mlmxn")
+}
 
-[node name="SparkSprite" type="Sprite2D" parent="." unique_id=1866416360]
-texture = ExtResource("1_x455p")
+[node name="Spark" type="Node2D"]
+
+[node name="SparkSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_1xvgg")
 centered = false
 offset = Vector2(-24, -38)
 hframes = 4
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1669157756]
-libraries/ = SubResource("AnimationLibrary_541ub")
-autoplay = &"idle"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v8cvv")
+}
+autoplay = "idle"

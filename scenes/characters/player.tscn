@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://cvr6opvp31hp6"]
+[gd_scene load_steps=29 format=3 uid="uid://cvr6opvp31hp6"]
 
 [ext_resource type="PackedScene" uid="uid://h4wo2mqnh48o" path="res://scenes/characters/character.tscn" id="1_1in0h"]
-[ext_resource type="Script" uid="uid://dck3lwmyjswm1" path="res://scenes/characters/player.gd" id="2_1d5f1"]
+[ext_resource type="Script" path="res://scenes/characters/player.gd" id="2_1d5f1"]
 [ext_resource type="Texture2D" uid="uid://cxg8d6qg72u72" path="res://assets/art/characters/player.png" id="2_fyfnq"]
 [ext_resource type="PackedScene" uid="uid://c6incy0vxd2f1" path="res://scenes/characters/enemy_slot.tscn" id="4_cma4q"]
 [ext_resource type="Texture2D" uid="uid://c7oy0sgs2x2jr" path="res://assets/art/characters/player_knife.png" id="5_e7erk"]
-[ext_resource type="Texture2D" uid="uid://v0yr0cv722t7" path="res://assets/art/characters/player_gun.png" id="6_kqtwu"]
+[ext_resource type="Texture2D" uid="uid://v0yr0cv722t7" path="res://assets/art/characters/player_gun.png" id="6_hacdv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kwi03"]
 radius = 2.0
@@ -59,12 +59,13 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [9]
 }
 
 [sub_resource type="Animation" id="Animation_wumbs"]
 resource_name = "fall"
 length = 0.1
+loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -100,7 +101,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [9]
 }
 
 [sub_resource type="Animation" id="Animation_gjvar"]
@@ -194,10 +195,10 @@ tracks/3/path = NodePath("GunSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8, 8, 8]
+"values": [8]
 }
 
 [sub_resource type="Animation" id="Animation_bwa1l"]
@@ -375,10 +376,10 @@ tracks/3/path = NodePath("GunSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8, 8, 8, 8, 8]
+"values": [8]
 }
 
 [sub_resource type="Animation" id="Animation_qsm04"]
@@ -552,10 +553,10 @@ tracks/3/path = NodePath("GunSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8, 8, 8]
+"values": [8]
 }
 
 [sub_resource type="Animation" id="Animation_05pmx"]
@@ -595,7 +596,7 @@ tracks/2/path = NodePath("KnifeSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.05),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [31, 32]
@@ -607,10 +608,10 @@ tracks/3/path = NodePath("GunSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8, 8]
+"values": [8]
 }
 
 [sub_resource type="Animation" id="Animation_n5o5x"]
@@ -662,13 +663,13 @@ tracks/3/path = NodePath("GunSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8, 8, 8, 8, 8]
+"values": [8]
 }
 
-[sub_resource type="Animation" id="Animation_kqtwu"]
+[sub_resource type="Animation" id="Animation_vutuy"]
 resource_name = "shoot"
 length = 0.4
 step = 0.1
@@ -691,10 +692,10 @@ tracks/1/path = NodePath("KnifeSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [69, 69, 69, 69]
+"values": [69]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -877,23 +878,23 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1vqdb"]
 _data = {
-&"RESET": SubResource("Animation_ot1yu"),
-&"fall": SubResource("Animation_wumbs"),
-&"grounded": SubResource("Animation_gjvar"),
-&"hurt": SubResource("Animation_dvjph"),
-&"idle": SubResource("Animation_bwa1l"),
-&"jump": SubResource("Animation_dl3bv"),
-&"jumpkick": SubResource("Animation_gbu5k"),
-&"kick": SubResource("Animation_ievtc"),
-&"land": SubResource("Animation_qsm04"),
-&"pickup": SubResource("Animation_mnxsi"),
-&"punch": SubResource("Animation_y660q"),
-&"punch_alt": SubResource("Animation_05pmx"),
-&"roundkick": SubResource("Animation_n5o5x"),
-&"shoot": SubResource("Animation_kqtwu"),
-&"takeoff": SubResource("Animation_gtx5g"),
-&"throw": SubResource("Animation_f40ws"),
-&"walk": SubResource("Animation_fp4cu")
+"RESET": SubResource("Animation_ot1yu"),
+"fall": SubResource("Animation_wumbs"),
+"grounded": SubResource("Animation_gjvar"),
+"hurt": SubResource("Animation_dvjph"),
+"idle": SubResource("Animation_bwa1l"),
+"jump": SubResource("Animation_dl3bv"),
+"jumpkick": SubResource("Animation_gbu5k"),
+"kick": SubResource("Animation_ievtc"),
+"land": SubResource("Animation_qsm04"),
+"pickup": SubResource("Animation_mnxsi"),
+"punch": SubResource("Animation_y660q"),
+"punch_alt": SubResource("Animation_05pmx"),
+"roundkick": SubResource("Animation_n5o5x"),
+"shoot": SubResource("Animation_vutuy"),
+"takeoff": SubResource("Animation_gtx5g"),
+"throw": SubResource("Animation_f40ws"),
+"walk": SubResource("Animation_fp4cu")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xc3oh"]
@@ -905,40 +906,42 @@ size = Vector2(10, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66ndo"]
 size = Vector2(3, 3)
 
-[node name="Player" unique_id=278143304 instance=ExtResource("1_1in0h")]
+[node name="Player" instance=ExtResource("1_1in0h")]
 collision_layer = 2
 collision_mask = 137
 script = ExtResource("2_1d5f1")
 max_duration_between_successful_hits = 2000
-autodestroy_on_drop = true
 can_respawn = true
 damage = 4
-damage_gunshot = 8
-damage_power = 6
+max_health = 30
 duration_grounded = 1000.0
 jump_intensity = 150.0
 knockback_intensity = 10.0
 knockdown_intensity = 70.0
-max_ammo_per_gun = 5
-max_health = 30
 speed = 35.0
+autodestroy_on_drop = true
+damage_gunshot = 8
+damage_power = 6
+max_ammo_per_gun = 3
 
-[node name="CharacterSprite" parent="." index="1" unique_id=1607744924]
+[node name="CharacterSprite" parent="." index="1"]
 texture = ExtResource("2_fyfnq")
 centered = false
 offset = Vector2(-24, -48)
 hframes = 10
 vframes = 10
 
-[node name="CollisionShape2D" parent="." index="2" unique_id=1852332945]
+[node name="CollisionShape2D" parent="." index="2"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_kwi03")
 
-[node name="AnimationPlayer" parent="." index="3" unique_id=1961740770]
-libraries/ = SubResource("AnimationLibrary_1vqdb")
-autoplay = &"idle"
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_1vqdb")
+}
+autoplay = "idle"
 
-[node name="DamageEmitter" parent="." index="4" unique_id=654507529]
+[node name="DamageEmitter" parent="." index="4"]
 position = Vector2(0, -12)
 collision_mask = 96
 
@@ -946,28 +949,28 @@ collision_mask = 96
 position = Vector2(9, 0)
 shape = SubResource("RectangleShape2D_xc3oh")
 
-[node name="DamageReceiver" parent="." index="5" unique_id=74116112]
+[node name="DamageReceiver" parent="." index="5"]
 collision_layer = 16
 
 [node name="CollisionShape2D" parent="DamageReceiver" index="0"]
 position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_5xonq")
 
-[node name="EnemySlots" type="Node2D" parent="." index="6" unique_id=901057448]
+[node name="EnemySlots" type="Node2D" parent="." index="6"]
 
-[node name="EnemySlot" parent="EnemySlots" index="0" unique_id=1841663011 instance=ExtResource("4_cma4q")]
-position = Vector2(13, 1)
+[node name="EnemySlot" parent="EnemySlots" index="0" instance=ExtResource("4_cma4q")]
+position = Vector2(13, 3)
 
-[node name="EnemySlot2" parent="EnemySlots" index="1" unique_id=1181789171 instance=ExtResource("4_cma4q")]
-position = Vector2(13, -1)
+[node name="EnemySlot2" parent="EnemySlots" index="1" instance=ExtResource("4_cma4q")]
+position = Vector2(13, -2)
 
-[node name="EnemySlot3" parent="EnemySlots" index="2" unique_id=1913508433 instance=ExtResource("4_cma4q")]
-position = Vector2(-13, 1)
+[node name="EnemySlot3" parent="EnemySlots" index="2" instance=ExtResource("4_cma4q")]
+position = Vector2(-13, 3)
 
-[node name="EnemySlot4" parent="EnemySlots" index="3" unique_id=1111200233 instance=ExtResource("4_cma4q")]
-position = Vector2(-13, -1)
+[node name="EnemySlot4" parent="EnemySlots" index="3" instance=ExtResource("4_cma4q")]
+position = Vector2(-13, -2)
 
-[node name="KnifeSprite" parent="." index="8" unique_id=1057591134]
+[node name="KnifeSprite" parent="." index="8"]
 texture = ExtResource("5_e7erk")
 centered = false
 offset = Vector2(-24, -48)
@@ -975,25 +978,25 @@ hframes = 10
 vframes = 10
 frame = 80
 
-[node name="WeaponPosition" parent="KnifeSprite" index="0" unique_id=1196887842]
+[node name="WeaponPosition" parent="KnifeSprite" index="0"]
 position = Vector2(18, -14)
 
-[node name="ProjectileAim" parent="." index="9" unique_id=378737297]
-collision_mask = 12
-
-[node name="CollectibleSensor" parent="." index="10" unique_id=824095031]
-collision_mask = 256
-
-[node name="CollisionShape2D" parent="CollectibleSensor" index="0" unique_id=107542630]
-shape = SubResource("RectangleShape2D_66ndo")
-
-[node name="GunSprite" parent="." index="11" unique_id=247944687]
-texture = ExtResource("6_kqtwu")
+[node name="GunSprite" parent="." index="9"]
+texture = ExtResource("6_hacdv")
 centered = false
 offset = Vector2(-24, -48)
 hframes = 10
 vframes = 10
-frame = 8
+frame = 9
+
+[node name="ProjectileAim" parent="." index="10"]
+collision_mask = 12
+
+[node name="CollectibleSensor" parent="." index="11"]
+collision_mask = 256
+
+[node name="CollisionShape2D" parent="CollectibleSensor" index="0"]
+shape = SubResource("RectangleShape2D_66ndo")
 
 [editable path="DamageEmitter"]
 [editable path="DamageReceiver"]

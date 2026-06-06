@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://cvtpx0cygc7vt"]
+[gd_scene load_steps=3 format=3 uid="uid://c0xjjoqb6n8wi"]
 
-[ext_resource type="Theme" uid="uid://cj62winytswrr" path="res://gui_theme.tres" id="1_dvs3h"]
-[ext_resource type="Script" uid="uid://cn4tcnxuuqjm" path="res://scenes/ui/combo_indicator.gd" id="2_acwea"]
+[ext_resource type="Theme" uid="uid://xujyuvvstsau" path="res://gui_theme.tres" id="1_dngwb"]
+[ext_resource type="Script" path="res://scenes/ui/combo_indicator.gd" id="2_qjfjl"]
 
-[node name="ComboIndicator" type="Label" unique_id=140146028]
-offset_right = 23.0
-offset_bottom = 6.0
-theme = ExtResource("1_dvs3h")
+[node name="ComboIndicator" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("1_dngwb")
 text = "x10"
-script = ExtResource("2_acwea")
+script = ExtResource("2_qjfjl")
 duration_combo_timeout = 3000
