@@ -24,6 +24,7 @@ config/icon="uid://c26kceqmqpeav"
 EntityManager="*uid://c3xewf5p8n0jo"
 StageManager="*uid://bquli04yaqene"
 DamageManager="*uid://bsay8l2disa7m"
+ComboManager="*uid://hhlomjv0m0o2"
 
 [debug]
 

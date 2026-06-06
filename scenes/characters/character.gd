@@ -231,6 +231,7 @@ func shoot_gun() -> void:
 	if target != null:
 		target_point = projectile_aim.get_collision_point()
 		target.on_receive_damage(damage_gunshot, heading, DamageReceiver.HitType.KNOCKDOWN)
+		EntityManager.spawn_spark.emit(position)
 	var weapon_root_position := Vector2(weapon_position.global_position.x, position.y)
 	var weapon_height := -weapon_position.position.y
 	var distance : float = target_point.x - weapon_position.global_position.x
@@ -323,7 +324,7 @@ func on_wall_hit(_wall: AnimatableBody2D) -> void:
 	height_speed = knockback_intensity
 	velocity = -velocity / 2.0
 
-func set_health(health: int, emit_signal: bool = true) -> void:
+func set_health(health: int, is_emitting_signal: bool = true) -> void:
 	current_health = clamp(health, 0, max_health)
-	if emit_signal:
+	if is_emitting_signal:
 		DamageManager.health_change.emit(type, current_health, max_health)
