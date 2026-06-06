@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://citeaijb61k5u"]
 
 [ext_resource type="Script" uid="uid://ngyudfhqy6ot" path="res://world.gd" id="1_58n65"]
+[ext_resource type="PackedScene" uid="uid://bd2palfnebeio" path="res://scenes/ui/ui.tscn" id="2_036b0"]
 [ext_resource type="PackedScene" uid="uid://cvr6opvp31hp6" path="res://scenes/characters/player.tscn" id="2_fso2d"]
 [ext_resource type="Script" uid="uid://c6xsj78aynpvp" path="res://scenes/stage/actors_container.gd" id="3_gbfbk"]
 [ext_resource type="PackedScene" uid="uid://b73t0g0gs2l5x" path="res://scenes/stage/stage_01_streets.tscn" id="5_dwbse"]
@@ -10,6 +11,8 @@ size = Vector2(6, 64)
 
 [node name="World" type="Node2D" unique_id=1174138656]
 script = ExtResource("1_58n65")
+
+[node name="UI" parent="." unique_id=1715625583 instance=ExtResource("2_036b0")]
 
 [node name="Stage-01-Streets" parent="." unique_id=672385973 instance=ExtResource("5_dwbse")]
 
@@ -45,3 +48,5 @@ player = NodePath("Player")
 
 [node name="Player" parent="ActorsContainer" unique_id=2034808355 instance=ExtResource("2_fso2d")]
 position = Vector2(33, 46)
+
+[editable path="UI"]

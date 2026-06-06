@@ -29,16 +29,19 @@ position = Vector2(10, 27)
 [node name="BasicEnemy3" parent="Checkpoints/CheckPoint/Enemies" parent_id_path=PackedInt32Array(1689718238, 1960053120) index="1" unique_id=1589829669 instance=ExtResource("5_2j5k0")]
 position = Vector2(33, 27)
 
-[node name="GoonEnemy" parent="Checkpoints/CheckPoint/Enemies" parent_id_path=PackedInt32Array(1689718238, 1960053120) index="2" unique_id=235009453 instance=ExtResource("4_mslao")]
+[node name="BasicEnemy5" parent="Checkpoints/CheckPoint/Enemies" parent_id_path=PackedInt32Array(1689718238, 1960053120) index="2" unique_id=1725195730 instance=ExtResource("5_2j5k0")]
+position = Vector2(21, 28)
+
+[node name="GoonEnemy" parent="Checkpoints/CheckPoint/Enemies" parent_id_path=PackedInt32Array(1689718238, 1960053120) index="3" unique_id=235009453 instance=ExtResource("4_mslao")]
 position = Vector2(-10, 50)
 
-[node name="GoonEnemy2" parent="Checkpoints/CheckPoint/Enemies" parent_id_path=PackedInt32Array(1689718238, 1960053120) index="3" unique_id=726731972 instance=ExtResource("4_mslao")]
+[node name="GoonEnemy2" parent="Checkpoints/CheckPoint/Enemies" parent_id_path=PackedInt32Array(1689718238, 1960053120) index="4" unique_id=726731972 instance=ExtResource("4_mslao")]
 position = Vector2(53, -11)
 
-[node name="BasicEnemy" parent="Checkpoints/CheckPoint/Enemies" parent_id_path=PackedInt32Array(1689718238, 1960053120) index="4" unique_id=1725195730 instance=ExtResource("5_2j5k0")]
+[node name="BasicEnemy" parent="Checkpoints/CheckPoint/Enemies" parent_id_path=PackedInt32Array(1689718238, 1960053120) index="5" unique_id=1848368198 instance=ExtResource("5_2j5k0")]
 position = Vector2(115, 49)
 
-[node name="BasicEnemy2" parent="Checkpoints/CheckPoint/Enemies" parent_id_path=PackedInt32Array(1689718238, 1960053120) index="5" unique_id=549700419 instance=ExtResource("5_2j5k0")]
+[node name="BasicEnemy2" parent="Checkpoints/CheckPoint/Enemies" parent_id_path=PackedInt32Array(1689718238, 1960053120) index="6" unique_id=549700419 instance=ExtResource("5_2j5k0")]
 position = Vector2(112, 62)
 
 [node name="CheckPoint2" parent="Checkpoints" parent_id_path=PackedInt32Array(1637833398) index="1" unique_id=2006028931 instance=ExtResource("3_j5gp6")]
