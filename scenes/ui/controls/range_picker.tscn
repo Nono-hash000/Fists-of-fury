@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://c6rcakvsj4106"]
+
+[ext_resource type="PackedScene" uid="uid://clitkrfmcssxm" path="res://scenes/ui/controls/activable_control.tscn" id="1_22n7l"]
+[ext_resource type="Script" uid="uid://dyoqmanqxqpex" path="res://scenes/ui/controls/range_picker.gd" id="2_2wkcw"]
+[ext_resource type="Texture2D" uid="uid://5rvhsvtlgbjr" path="res://assets/art/ui/ui-tick-on.png" id="2_oljjj"]
+
+[node name="RangePicker" unique_id=616180371 instance=ExtResource("1_22n7l")]
+script = ExtResource("2_2wkcw")
+current_value = 5
+max_value = 10
+
+[node name="TicksContainer" type="HBoxContainer" parent="." index="1" unique_id=1519120969]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="TicksContainer" index="0" unique_id=723035164]
+layout_mode = 2
+texture = ExtResource("2_oljjj")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="TicksContainer" index="1" unique_id=1260252405]
+layout_mode = 2
+texture = ExtResource("2_oljjj")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="TicksContainer" index="2" unique_id=322489870]
+layout_mode = 2
+texture = ExtResource("2_oljjj")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="TicksContainer" index="3" unique_id=1670971580]
+layout_mode = 2
+texture = ExtResource("2_oljjj")
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="TicksContainer" index="4" unique_id=819983117]
+layout_mode = 2
+texture = ExtResource("2_oljjj")
+stretch_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="TicksContainer" index="5" unique_id=1133581133]
+layout_mode = 2
+texture = ExtResource("2_oljjj")
+stretch_mode = 2
+
+[node name="TextureRect7" type="TextureRect" parent="TicksContainer" index="6" unique_id=1293941665]
+layout_mode = 2
+texture = ExtResource("2_oljjj")
+stretch_mode = 2
+
+[node name="TextureRect8" type="TextureRect" parent="TicksContainer" index="7" unique_id=1067202336]
+layout_mode = 2
+texture = ExtResource("2_oljjj")
+stretch_mode = 2
+
+[node name="TextureRect9" type="TextureRect" parent="TicksContainer" index="8" unique_id=1722658761]
+layout_mode = 2
+texture = ExtResource("2_oljjj")
+stretch_mode = 2
+
+[node name="TextureRect10" type="TextureRect" parent="TicksContainer" index="9" unique_id=396659949]
+layout_mode = 2
+texture = ExtResource("2_oljjj")
+stretch_mode = 2

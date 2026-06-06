@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://brxdqp5e1hj40"]
+
+[ext_resource type="PackedScene" uid="uid://clitkrfmcssxm" path="res://scenes/ui/controls/activable_control.tscn" id="1_yvxt5"]
+[ext_resource type="Script" uid="uid://cbgb5h00mdfra" path="res://scenes/ui/controls/label_picker.gd" id="2_4km78"]
+
+[node name="LabelPicker" unique_id=616180371 instance=ExtResource("1_yvxt5")]
+script = ExtResource("2_4km78")
+
+[node name="Label" parent="." index="0" unique_id=1449253291]
+horizontal_alignment = 1
