@@ -17,10 +17,18 @@ const ENEMY_MAP := {
 
 @export var player : Player
 
-func _ready() -> void:
+var doors : Array[Door] = []
+
+func _init() -> void:
+	EntityManager.orphan_actor.connect(on_orphan_actor.bind())
 	EntityManager.spawn_collectible.connect(on_spawn_collectible.bind())
 	EntityManager.spawn_enemy.connect(on_spawn_enemy.bind())
 	EntityManager.spawn_shot.connect(on_spawn_shot.bind())
+
+func on_orphan_actor(orphan: Node2D) -> void:
+	if orphan is Door:
+		doors.append(orphan)
+	orphan.reparent(self)
 
 func on_spawn_collectible(type: Collectible.Type, initial_state: Collectible.State, collectible_global_position: Vector2, collectible_direction: Vector2, initial_height: float, autodestroy: bool) -> void:
 	var collectible : Collectible = PREFAB_MAP[type].instantiate()
@@ -35,6 +43,10 @@ func on_spawn_enemy(enemy_data: EnemyData) -> void:
 	var enemy : Character = ENEMY_MAP[enemy_data.type].instantiate()
 	enemy.global_position = enemy_data.global_position
 	enemy.player = player
+	enemy.height = enemy_data.height
+	enemy.state = enemy_data.state
+	if enemy_data.door_index > -1:
+		enemy.assign_door(doors[enemy_data.door_index])
 	add_child(enemy)
 
 func on_spawn_shot(gun_root_position: Vector2, distance_traveled: float, height: float) -> void:
