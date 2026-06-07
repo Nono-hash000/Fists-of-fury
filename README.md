@@ -1,2 +1,1 @@
-# fists-of-fury-course
-Public repository for the Beat 'em up course
+# fists-of-fury
