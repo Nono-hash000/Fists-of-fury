@@ -24,7 +24,8 @@ func _init() -> void:
 	EntityManager.spawn_shot.connect(on_spawn_shot.bind())
 	EntityManager.spawn_enemy.connect(on_spawn_enemy.bind())
 	EntityManager.spawn_spark.connect(on_spawn_spark.bind())
-	
+	DamageManager.player_revive.connect(on_player_revive.bind())
+
 func on_spawn_collectible(type: Collectible.Type, initial_state: Collectible.State, collectible_global_position: Vector2, collectible_direction: Vector2, initial_height: float, autodestroy: bool) -> void:
 	var collectible : Collectible = PREFAB_MAP[type].instantiate()
 	collectible.state = initial_state
@@ -59,3 +60,10 @@ func on_orphan_actor(orphan: Node2D) -> void:
 	if orphan is Door:
 		doors.append(orphan)
 	orphan.reparent(self)
+
+func on_player_revive() -> void:
+	for child in get_children():
+		if child is Character:
+			var character : Character = child as Character
+			if character.type != Character.Type.PLAYER:
+				character.on_receive_damage(0, Vector2.ZERO, DamageReceiver.HitType.KNOCKDOWN)

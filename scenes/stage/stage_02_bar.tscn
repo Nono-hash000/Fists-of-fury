@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cl8dhuoat68u"]
+
+[ext_resource type="PackedScene" uid="uid://df3rikr3va82q" path="res://scenes/stage/stage.tscn" id="1_k1f16"]
+[ext_resource type="Texture2D" uid="uid://bvookqfd2anbr" path="res://assets/art/backgrounds/bar-background.png" id="2_o3esi"]
+[ext_resource type="PackedScene" uid="uid://bkc2erd4706qe" path="res://scenes/stage/checkpoint.tscn" id="3_hsnae"]
+[ext_resource type="PackedScene" uid="uid://77l4jx081mf4" path="res://scenes/characters/thug_enemy.tscn" id="4_c4j3w"]
+
+[node name="Stage-02-Bar" unique_id=811945592 instance=ExtResource("1_k1f16")]
+music = 3
+
+[node name="MainBackgorund" parent="Backgrounds" parent_id_path=PackedInt32Array(2072501208) index="0" unique_id=747732119]
+texture = ExtResource("2_o3esi")
+
+[node name="Checkpoint" parent="Checkpoints" parent_id_path=PackedInt32Array(1334899557) index="0" unique_id=2068847142 instance=ExtResource("3_hsnae")]
+position = Vector2(70, 0)
+nb_simultaneous_enemies = 3
+
+[node name="ThugEnemy" parent="Checkpoints/Checkpoint/Enemies" index="0" unique_id=1681131118 instance=ExtResource("4_c4j3w")]
+position = Vector2(114, 43)
+
+[node name="ThugEnemy2" parent="Checkpoints/Checkpoint/Enemies" index="1" unique_id=446666182 instance=ExtResource("4_c4j3w")]
+position = Vector2(36, -28)
+
+[node name="ThugEnemy3" parent="Checkpoints/Checkpoint/Enemies" index="2" unique_id=1673597564 instance=ExtResource("4_c4j3w")]
+position = Vector2(77, 76)
+
+[node name="ThugEnemy4" parent="Checkpoints/Checkpoint/Enemies" index="3" unique_id=183742658 instance=ExtResource("4_c4j3w")]
+position = Vector2(67, -14)
+
+[node name="ThugEnemy5" parent="Checkpoints/Checkpoint/Enemies" index="4" unique_id=929566241 instance=ExtResource("4_c4j3w")]
+position = Vector2(110, 66)
+
+[node name="ThugEnemy6" parent="Checkpoints/Checkpoint/Enemies" index="5" unique_id=1285264866 instance=ExtResource("4_c4j3w")]
+position = Vector2(-17, 56)
+
+[node name="ThugEnemy7" parent="Checkpoints/Checkpoint/Enemies" index="6" unique_id=1844007209 instance=ExtResource("4_c4j3w")]
+position = Vector2(9, 79)
+
+[node name="ThugEnemy8" parent="Checkpoints/Checkpoint/Enemies" index="7" unique_id=1493677288 instance=ExtResource("4_c4j3w")]
+position = Vector2(-22, 11)
+
+[node name="ThugEnemy9" parent="Checkpoints/Checkpoint/Enemies" index="8" unique_id=1034244485 instance=ExtResource("4_c4j3w")]
+position = Vector2(52, 92)
+
+[node name="ThugEnemy10" parent="Checkpoints/Checkpoint/Enemies" index="9" unique_id=975921704 instance=ExtResource("4_c4j3w")]
+position = Vector2(131, -4)
+
+[node name="PlayerSpawnLocation" parent="." index="6" unique_id=60160287]
+position = Vector2(13, 46)
+
+[editable path="Checkpoints/Checkpoint"]
