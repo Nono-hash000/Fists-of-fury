@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dlkev2s84x4xv" path="res://scenes/ui/score_indicator.tscn" id="6_hdap0"]
 [ext_resource type="PackedScene" uid="uid://dv7as7fmjbxt8" path="res://scenes/ui/flickering_texture_rect.tscn" id="7_w57sk"]
 [ext_resource type="Texture2D" uid="uid://bflpnyksqncyx" path="res://assets/art/ui/go-go-go.png" id="8_ac4e1"]
+[ext_resource type="PackedScene" uid="uid://bqo0kpxej4dql" path="res://scenes/ui/stage_transition.tscn" id="9_uegxj"]
 
 [node name="UI" type="CanvasLayer" unique_id=855985526]
 process_mode = 3
@@ -101,5 +102,8 @@ offset_bottom = 27.0
 grow_horizontal = 0
 texture = ExtResource("8_ac4e1")
 stretch_mode = 2
+
+[node name="StageTransition" parent="UIContainer" unique_id=1070984420 instance=ExtResource("9_uegxj")]
+layout_mode = 1
 
 [editable path="UIContainer/EnemyHealthbar"]

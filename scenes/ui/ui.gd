@@ -13,6 +13,7 @@ const GAME_OVER_SCREEN_PREFAB := preload("res://scenes/ui/game_over_screen.tscn"
 @onready var go_indicator : FlickeringTextureRect = $UIContainer/GoIndicator
 @onready var player_healthbar : Healthbar = $UIContainer/PlayerHealthbar
 @onready var score_indicator : ScoreIndicator = $UIContainer/ScoreIndicator
+@onready var stage_transition: StageTransition = $UIContainer/StageTransition
 
 @export var duration_healthbar_visible : int
 
@@ -31,6 +32,7 @@ const avatar_map : Dictionary = {
 func _init() -> void:
 	DamageManager.health_change.connect(on_character_health_change.bind())
 	StageManager.checkpoint_complete.connect(on_checkpoint_complete.bind())
+	StageManager.stage_complete.connect(on_stage_complete.bind())
 
 func _ready() -> void:
 	enemy_avatar.visible = false
@@ -82,3 +84,6 @@ func on_game_over() -> void:
 
 func on_checkpoint_complete(_checkpoint: Checkpoint) -> void:
 	go_indicator.start_flickering()
+
+func on_stage_complete() -> void:
+	stage_transition.start_transition()

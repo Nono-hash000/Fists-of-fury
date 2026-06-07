@@ -44,7 +44,6 @@ sync_to_physics = false
 position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_ktcqf")
 
-[node name="ActorsContainer" type="Node2D" parent="." unique_id=596615980 node_paths=PackedStringArray("player")]
+[node name="ActorsContainer" type="Node2D" parent="." unique_id=596615980]
 y_sort_enabled = true
 script = ExtResource("3_1ub62")
-player = NodePath("")
