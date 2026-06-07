@@ -1,38 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://df3rikr3va82q"]
+[gd_scene format=3 uid="uid://df3rikr3va82q"]
 
-[ext_resource type="Script" path="res://scenes/stage/stage.gd" id="1_2854f"]
+[ext_resource type="Script" uid="uid://ff3dse2i71hb" path="res://scenes/stage/stage.gd" id="1_2854f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3j2f"]
 size = Vector2(419, 20)
 
-[node name="Stage" type="Node2D"]
+[node name="Stage" type="Node2D" unique_id=811945592]
 script = ExtResource("1_2854f")
 
-[node name="Backgrounds" type="Node2D" parent="."]
+[node name="Backgrounds" type="Node2D" parent="." unique_id=2072501208]
 
-[node name="MainBackgorund" type="Sprite2D" parent="Backgrounds"]
+[node name="MainBackgorund" type="Sprite2D" parent="Backgrounds" unique_id=747732119]
 centered = false
 
-[node name="WorldColliders" type="Node2D" parent="."]
+[node name="WorldColliders" type="Node2D" parent="." unique_id=250948481]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="WorldColliders"]
+[node name="StaticBody2D" type="StaticBody2D" parent="WorldColliders" unique_id=545575393]
 position = Vector2(0, 22)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldColliders/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldColliders/StaticBody2D" unique_id=120165203]
 position = Vector2(199.5, 0)
 shape = SubResource("RectangleShape2D_c3j2f")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="WorldColliders"]
+[node name="StaticBody2D2" type="StaticBody2D" parent="WorldColliders" unique_id=911326755]
 position = Vector2(0, 74)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldColliders/StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldColliders/StaticBody2D2" unique_id=1980079366]
 position = Vector2(199.5, 0)
 shape = SubResource("RectangleShape2D_c3j2f")
 
-[node name="Checkpoints" type="Node2D" parent="."]
+[node name="Checkpoints" type="Node2D" parent="." unique_id=1334899557]
 
-[node name="Containers" type="Node2D" parent="."]
+[node name="Containers" type="Node2D" parent="." unique_id=698990466]
 
-[node name="Doors" type="Node2D" parent="."]
+[node name="Doors" type="Node2D" parent="." unique_id=1686909553]
+
+[node name="Fixtures" type="Node2D" parent="." unique_id=1141134203]
