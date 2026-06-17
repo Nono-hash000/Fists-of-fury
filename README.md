@@ -1,56 +1,59 @@
-# 👊 Fists of Fury 👊
+This is my passion project—a fast-paced, arcade-style beat 'em up game heavily inspired by the classics of the 90s. Built from the ground up in the **Godot 4.6** engine, the goal is simple: clean up the city, grab whatever weapons you can find on the asphalt, and punch your way to victory.
 
-Welcome to the mean streets! **Fists of Fury** is an action-packed, arcade-style beat 'em up game powered by the awesome **Godot 4.6** engine. Clean up the city, grab whatever weapons you can find on the asphalt, and punch your way to victory!
-
----
-
-## 🚧 Current Project Status
-
-The city is currently under construction, but the brawl has already started:
-* **Stage 1:** 🏙️ **100% Complete!** Fully playable and ready for a beatdown.
-* **Stage 2:** 🏗️ **50% Complete.** Half-built, but the enemies are already moving in.
+Whether you're here to play the current build, check out the source code, or contribute to the chaos, I'm glad you stopped by!
 
 ---
 
-## 💀 The Baddies
+## Development Status & Roadmap
 
-You're not alone out there. Watch out for these friendly neighborhood knuckleheads:
+The city is currently under construction, but the brawl has already started. Here is where the project stands right now:
 
-* 🧢 **The Punk:** Fast, reckless, and begging for a jump kick.
-* 🕶️ **The Goon:** Meaner and tougher. Don't let him get the jump on you.
-* 🪓 **The Thug:** A heavy hitter who will ruin your day if you aren't careful.
-* 👑 **Boss Igor:** The big man himself. Bring your A-game, or you'll be scraping yourself off the pavement.
-
----
-
-## 🎮 How to Brawl (Controls)
-
-Master your moves to survive.
-
-### **In-Game Action**
-| Action | Key / Input |
-| :--- | :--- |
-| **Move** | `W` / `A` / `S` / `D` |
-| **Jump** | `Spacebar` |
-| **Attack / Punch** | `Left Mouse Click` |
-| **Pick Up Items** | `Left Mouse Click` (over item) |
-| **Pause / Settings** | `ESC` |
-
-### **Settings Menu Navigation**
-| Action | Key / Input |
-| :--- | :--- |
-| **Navigate Menu** | `W` / `A` / `S` / `D` |
-| **Select Option** | `Spacebar` |
+* **Stage 1:** **100% Complete!** Fully playable, polished, and ready for a beatdown.
+* **Stage 2:** **50% Complete.** The level geometry is mostly blocked out, but enemy waves and triggers are still being tweaked.
+* **Stage 3 & Beyond:** **Planned.** Concept art and boss designs are in the works.
 
 ---
 
-## 🍕 Street Loot 🔪
+## Controls
 
-When your fists aren't enough, the streets provide. Use your `Left Mouse Click` to pick up items off the ground and turn the tide of battle:
+Master your moves to survive the streets. 
 
-* 🍔 **Food:** Heal up those bruises and get back in the fight.
-* 🔪 **Knife:** Get up close and personal with some sharp steel.
-* 🔫 **Gun:** Sometimes, you just need to even the odds from a distance.
+### In-Game Action
+*   **Move:** `W` / `A` / `S` / `D`
+*   **Jump:** `Spacebar`
+*   **Attack / Punch:** `Left Mouse Click`
+*   **Pick Up Items:** `Left Mouse Click` (while standing over the item)
+*   **Pause / Settings:** `ESC`
+
+### UI & Menu Navigation
+*   **Navigate Menu:** `W` / `A` / `S` / `D`
+*   **Select Option:** `Spacebar`
 
 ---
-*Built with ❤️ (and lots of punching) in Godot 4.6.*
+
+## The Enemies
+
+*   **The Punk:** Fast, reckless, and begging for a jump kick. Low HP, but they travel in packs.
+*   **The Goon:** Meaner, tougher and carry knives. So don't let them get the jump on you.
+*   **The Thug:** A low health enemy who has a gun be careful.
+*   **Boss Igor:** The big man himself. Bring your A-game, or you'll be scraping yourself off the pavement.
+
+---
+
+## Street Loot & Weapons
+
+When your fists aren't enough, the streets provide. Keep an eye out for drops from broken crates and defeated enemies:
+
+*   **Food:** Heals up those bruises and gets you back in the fight.
+*   **Knife:** High-damage melee weapon. Great for crowd control.
+*   **Gun:** Limited ammo, but sometimes you just need to even the odds from a distance.
+
+---
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+> *Built with lots of punching in Godot 4.6.*
+
+```
