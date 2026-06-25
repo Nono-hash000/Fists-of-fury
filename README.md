@@ -1,59 +1,45 @@
-This is my passion project—a fast-paced, arcade-style beat 'em up game heavily inspired by the classics of the 90s. Built from the ground up in the **Godot 4.6** engine, the goal is simple: clean up the city, grab whatever weapons you can find on the asphalt, and punch your way to victory.
+I am super excited about my game project, an arcade-style beat 'em up game. This game is really inspired by games from the 90s. I built it from scratch using the Godot 4.6 engine. The goal is simple: you have to clean up the city grab any weapons you can find and punch your way to win.
 
-Whether you're here to play the current build, check out the source code, or contribute to the chaos, I'm glad you stopped by!
+I am glad you are here. You can play my game check out the code or join in on the fun.
 
----
+Development Status and Roadmap
 
-## Development Status & Roadmap
+The city in my game is still being built. The fighting has already started. Here is where my project stands:
 
-The city is currently under construction, but the brawl has already started. Here is where the project stands right now:
+* Stage 1: this stage is done. You can play it. Its polished.
 
-* **Stage 1:** **100% Complete!** Fully playable, polished, and ready for a beatdown.
-* **Stage 2:** **50% Complete.** The level geometry is mostly blocked out, but enemy waves and triggers are still being tweaked.
-* **Stage 3 & Beyond:** **Planned.** Concept art and boss designs are in the works.
+* Stage 2: this stage is half done. I have set up the level. I still need to work on enemy waves and triggers.
 
----
+* Stage 3 and Beyond: I have planned these stages. I am working on concept art and boss designs.
 
-## Controls
+To play my game you need to know the controls to survive.
 
-Master your moves to survive the streets. 
+In-Game Action
 
-### In-Game Action
-*   **Move:** `W` / `A` / `S` / `D`
-*   **Jump:** `Spacebar`
-*   **Attack / Punch:** `Left Mouse Click`
-*   **Pick Up Items:** `Left Mouse Click` (while standing over the item)
-*   **Pause / Settings:** `ESC`
+* To move, use W, A, S or D keys.
 
-### UI & Menu Navigation
-*   **Navigate Menu:** `W` / `A` / `S` / `D`
-*   **Select Option:** `Spacebar`
+* To jump press the spacebar.
 
----
+* To attack or punch click the mouse button.
 
-## The Enemies
+* To pick up items click the mouse button while standing over them.
 
-*   **The Punk:** Fast, reckless, and begging for a jump kick. Low HP, but they travel in packs.
-*   **The Goon:** Meaner, tougher and carry knives. So don't let them get the jump on you.
-*   **The Thug:** A low health enemy who has a gun be careful.
-*   **Boss Igor:** The big man himself. Bring your A-game, or you'll be scraping yourself off the pavement.
+* To pause or access settings press the ESC key.
 
----
+Menu Navigation
 
-## Street Loot & Weapons
+* To navigate the menu use W, A, S or D keys.
 
-When your fists aren't enough, the streets provide. Keep an eye out for drops from broken crates and defeated enemies:
+* To select an option press the spacebar.
 
-*   **Food:** Heals up those bruises and gets you back in the fight.
-*   **Knife:** High-damage melee weapon. Great for crowd control.
-*   **Gun:** Limited ammo, but sometimes you just need to even the odds from a distance.
+The Enemies
 
----
+My game has types of enemies: The Punk, The Goon and The Thug. The Punk is fast and reckless. They travel in packs. The Goon is mean and tough. They carry knives. The Thug has a lot of health and a gun so be careful. Then there is Boss Igor, the man. You need to be good to defeat him.
 
-## License
+Street Weapons
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Sometimes your fists are not enough. You can find items on the street like food, knives and guns. Food can heal you. Get you back in the fight. Knives are great for fighting enemies at once. Guns have limited ammo. Can be useful from a distance.
 
-> *Built with lots of punching in Godot 4.6.*
+My game is under the MIT License. You can check out the LICENSE file for info.
 
-```
+I built my game with lots of punching, in Godot 4.6.
