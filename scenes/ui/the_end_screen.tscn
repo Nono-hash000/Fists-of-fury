@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cjilpsivabyq6"]
+
+[ext_resource type="PackedScene" uid="uid://1xuxgol7pom3" path="res://scenes/ui/game_over_screen.tscn" id="1_q3sy7"]
+
+[node name="TheEndScreen" unique_id=724777100 instance=ExtResource("1_q3sy7")]
+
+[node name="Label" parent="Background/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(817927930) index="0" unique_id=1308015408]
+text = "THE END"

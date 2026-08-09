@@ -14,6 +14,8 @@ func refresh() -> void:
 		ticks[i].texture = TICK_OFF
 
 func _process(_delta: float) -> void:
+	if not is_visible_in_tree(): return
+	
 	if is_active and Input.is_action_just_pressed("ui_left"):
 		set_value(current_value - 1)
 	if is_active and Input.is_action_just_pressed("ui_right"):

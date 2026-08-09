@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dg3j0y6duxt14"]
+
+[ext_resource type="PackedScene" uid="uid://cvr6opvp31hp6" path="res://scenes/characters/player.tscn" id="1_yl2ra"]
+[ext_resource type="Script" uid="uid://cjedec6bn1jgq" path="res://scenes/characters/companion.gd" id="2_y8oqu"]
+
+[node name="Companion" unique_id=60607645 instance=ExtResource("1_yl2ra")]
+script = ExtResource("2_y8oqu")
+attack_cooldown = 800
+attack_range = 30.0
+can_respawn = false
+damage = 0
+max_health = 0
+duration_grounded = 0.0
+jump_intensity = 0.0
+knockback_intensity = 0.0
+knockdown_intensity = 0.0
+speed = 0.0
+autodestroy_on_drop = false
+damage_gunshot = 0
+damage_power = 0
+max_ammo_per_gun = 0
+
+[editable path="DamageEmitter"]
+[editable path="DamageReceiver"]
+[editable path="CollateralDamageEmitter"]

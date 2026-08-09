@@ -32,5 +32,5 @@ func get_player_spawn_location() -> Vector2:
 	return player_spawn_location.position
 
 func on_checkpoint_complete(checkpoint: Checkpoint) -> void:
-	if checkpoints.get_child(-1) == checkpoint:
+	if checkpoints.get_child_count() > 0 and checkpoints.get_child(-1) == checkpoint:
 		StageManager.stage_complete.emit()

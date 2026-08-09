@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://b7ao6ee12o3li"]
+
+[ext_resource type="Script" uid="uid://xmgtde02n5ns" path="res://scenes/ui/difficulty_screen.gd" id="1_7tfe6"]
+[ext_resource type="Theme" uid="uid://xujyuvvstsau" path="res://gui_theme.tres" id="2_igkwj"]
+[ext_resource type="PackedScene" uid="uid://brxdqp5e1hj40" path="res://scenes/ui/controls/label_picker.tscn" id="5_nf2fi"]
+
+[node name="DifficultyScreen" type="Control" unique_id=30580361]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7tfe6")
+
+[node name="BackGround" type="ColorRect" parent="." unique_id=1371024713]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="BackGround" unique_id=28796422]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 13
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/MarginContainer" unique_id=858267888]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Diffculty" type="Label" parent="BackGround/MarginContainer/VBoxContainer" unique_id=1889356825]
+layout_mode = 2
+theme = ExtResource("2_igkwj")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "DIFFICULTY"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="BackGround/MarginContainer/VBoxContainer" unique_id=1634866224]
+layout_mode = 2
+
+[node name="EasyButton" parent="BackGround/MarginContainer/VBoxContainer" unique_id=589853001 instance=ExtResource("5_nf2fi")]
+layout_mode = 2
+alignment = 1
+text = "EASY"
+
+[node name="Spacer2" type="Control" parent="BackGround/MarginContainer/VBoxContainer" unique_id=408568119]
+layout_mode = 2
+
+[node name="NormalButton" parent="BackGround/MarginContainer/VBoxContainer" unique_id=616180371 instance=ExtResource("5_nf2fi")]
+layout_mode = 2
+alignment = 1
+text = "NORMAL"
+
+[node name="Spacer3" type="Control" parent="BackGround/MarginContainer/VBoxContainer" unique_id=1825166049]
+layout_mode = 2
+
+[node name="HardButton" parent="BackGround/MarginContainer/VBoxContainer" unique_id=1435496310 instance=ExtResource("5_nf2fi")]
+layout_mode = 2
+alignment = 1
+text = "HARD"
+
+[node name="Spacer4" type="Control" parent="BackGround/MarginContainer/VBoxContainer" unique_id=280770725]
+layout_mode = 2
+
+[node name="ReturnButton" parent="BackGround/MarginContainer/VBoxContainer" unique_id=166540976 instance=ExtResource("5_nf2fi")]
+layout_mode = 2
+alignment = 1
+text = "RETURN"

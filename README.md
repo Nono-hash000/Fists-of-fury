@@ -1,45 +1,73 @@
-I am super excited about my game project, an arcade-style beat 'em up game. This game is really inspired by games from the 90s. I built it from scratch using the Godot 4.6 engine. The goal is simple: you have to clean up the city grab any weapons you can find and punch your way to win.
+#  Fists of Fury
 
-I am glad you are here. You can play my game check out the code or join in on the fun.
+This is a arcade style beat'em up game made using godot 4.6
 
-Development Status and Roadmap
 
-The city in my game is still being built. The fighting has already started. Here is where my project stands:
+##  Game Modes
 
-* Stage 1: this stage is done. You can play it. Its polished.
+* **Story Stages:**
+* *Stage 1 is the streets this is the start of the game and at the end of stage 1 you enter stage 2.
+* *Stage 2 is the bar this is the bigger segment of the story. Also here is wher you encounter the boss at the end of the stage 2 trying to stop you from exiting the bar and enter the stage 3.
+* *Stage 3 is after you exit the bar(stage 2) then you will need to clean up the rest of the punks, thugs and goons waiting outside the bar to end the game
 
-* Stage 2: this stage is half done. I have set up the level. I still need to work on enemy waves and triggers.
+* **Endless Survival:** This is a endless survival mode where the enemies keep on spawning. You will have 3 lives.
 
-* Stage 3 and Beyond: I have planned these stages. I am working on concept art and boss designs.
+*(Note: Endless Mode actively tracks your highest score stats, while a secret "Audience Score" judges your combos in the background to decide when to drop loot!)*
 
-To play my game you need to know the controls to survive.
 
-In-Game Action
+##  Controls
 
-* To move, use W, A, S or D keys.
+* **Move:** `W`, `A`, `S`, `D`
 
-* To jump press the spacebar.
+* **Jump:** `Spacebar`
 
-* To attack or punch click the mouse button.
+* **Attack / Use Weapon:** `Left Mouse Click`
 
-* To pick up items click the mouse button while standing over them.
+* **Pick Up Items:** Walk over them and `Left Mouse Click`
 
-* To pause or access settings press the ESC key.
+* **Summon Ally:** `V` (Watch the cooldown timer!)
+* 
+* **Pause / Settings:** `ESC`
 
-Menu Navigation
+*Menu Navigation: Use W/S/Up/Down to select, and Attack/Jump to confirm!*
 
-* To navigate the menu use W, A, S or D keys.
 
-* To select an option press the spacebar.
+##  Enemies
 
-The Enemies
+The city is crawling with different types of bad guys:
 
-My game has types of enemies: The Punk, The Goon and The Thug. The Punk is fast and reckless. They travel in packs. The Goon is mean and tough. They carry knives. The Thug has a lot of health and a gun so be careful. Then there is Boss Igor, the man. You need to be good to defeat him.
+* **The Punk:** He is fast and is a hand to hand fighter.
 
-Street Weapons
 
-Sometimes your fists are not enough. You can find items on the street like food, knives and guns. Food can heal you. Get you back in the fight. Knives are great for fighting enemies at once. Guns have limited ammo. Can be useful from a distance.
+* **The Goon:** Fast but weak so he uses knives for ranged attacks but don't mistake his boxing skills.
 
-My game is under the MIT License. You can check out the LICENSE file for info.
 
-I built my game with lots of punching, in Godot 4.6.
+* **The Thug:** Has a lot of health but uses a gun for heavy ranged attack.
+
+
+* **Boss Igor:** The big man himself. He drops in to cause chaos. You need to be good to defeat him. He is also able to climb walls and attack you jumping on you.
+
+
+##  Weapons 
+
+Break barrels or impress the audience with your combos to get drops:
+
+* **Food / Super Food:** Eat chicken to heal up and get back in the fight. Super Food gives you a temporary super-strength buff!
+
+
+* **Knives:** Great for fighting multiple enemies at once.
+
+
+* **Guns:** Has 6 ammo useful for ranged attacks.
+
+<img width="1002" height="647" alt="Screenshot 2026-07-25 173419" src="https://github.com/user-attachments/assets/9d8e2c38-7a57-43cc-a8dc-ee0a4d9f60a9" />
+<img width="1007" height="652" alt="Screenshot 2026-07-25 173519" src="https://github.com/user-attachments/assets/f9b7d283-e221-4d41-a965-bfc216e165f4" />
+<img width="1008" height="632" alt="Screenshot 2026-07-25 173450" src="https://github.com/user-attachments/assets/a7504cec-4cd3-4a49-bb2b-faf9362e8c75" />
+<img width="1010" height="651" alt="Screenshot 2026-07-25 173532" src="https://github.com/user-attachments/assets/50186268-6d62-46f5-b2ec-c17235c49bd9" />
+<img width="1007" height="647" alt="Screenshot 2026-07-25 173558" src="https://github.com/user-attachments/assets/596765b1-bb3c-49de-a275-59ee73e6988d" />
+<img width="1006" height="645" alt="image" src="https://github.com/user-attachments/assets/323e6fff-a280-4077-8bd3-fd122ee33219" />
+<img width="1252" height="802" alt="Screenshot 2026-07-18 170608" src="https://github.com/user-attachments/assets/3c6f91c3-465b-4670-9f34-10eb600d6e02" />
+
+I built this game in **Godot 4.6**.
+
+This project is open-source under the **MIT License**.

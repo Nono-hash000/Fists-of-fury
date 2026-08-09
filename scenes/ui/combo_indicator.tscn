@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0xjjoqb6n8wi"]
+[gd_scene format=3 uid="uid://c0xjjoqb6n8wi"]
 
 [ext_resource type="Theme" uid="uid://xujyuvvstsau" path="res://gui_theme.tres" id="1_dngwb"]
-[ext_resource type="Script" path="res://scenes/ui/combo_indicator.gd" id="2_qjfjl"]
+[ext_resource type="Script" uid="uid://b7j0q2rsrve32" path="res://scenes/ui/combo_indicator.gd" id="2_qjfjl"]
 
-[node name="ComboIndicator" type="Label"]
+[node name="ComboIndicator" type="Label" unique_id=463416378]
 offset_right = 40.0
 offset_bottom = 23.0
 theme = ExtResource("1_dngwb")

@@ -14,6 +14,10 @@ func on_heavy_blow_received() -> void:
 	if OptionsManager.is_screenshake_enabled:
 		is_shaking = true
 		time_start_shaking = Time.get_ticks_msec()
+		
+		Engine.time_scale = 0.0
+		await  get_tree().create_timer(0.05, true, false, true).timeout
+		Engine.time_scale = 1.0
 
 func _process(_delta: float) -> void:
 	if is_shaking and (Time.get_ticks_msec() - time_start_shaking < duration_shake):

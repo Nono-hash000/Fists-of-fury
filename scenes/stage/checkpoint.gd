@@ -35,6 +35,9 @@ func on_enemy_death(_enemy: Character) -> void:
 		queue_free()
 
 func on_player_enter(_player: Player) -> void:
+	if not _player is Player:
+		return
+	
 	if not is_activated:
 		StageManager.checkpoint_start.emit()
 		active_enemy_counter = 0

@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://cxo3rst5cxp3q"]
+
+[ext_resource type="Script" uid="uid://bfncef7ls4urq" path="res://endless_world.gd" id="1_4ufq3"]
+[ext_resource type="PackedScene" uid="uid://ch23ufr1x5ey4" path="res://scenes/ui/ui.tscn" id="2_d4kj2"]
+[ext_resource type="Script" uid="uid://c6pp5i1ose1ol" path="res://scenes/stage/camera.gd" id="3_n5so4"]
+[ext_resource type="Script" uid="uid://cjs42lvymr77m" path="res://scenes/stage/actors_container.gd" id="4_7s05d"]
+[ext_resource type="Script" uid="uid://4pmsta55gndw" path="res://scenes/stage/endless_spawner.gd" id="5_d4kj2"]
+[ext_resource type="Texture2D" uid="uid://b2ijhmj67ylrh" path="res://assets/art/backgrounds/street-background.png" id="6_n5so4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktcqf"]
+size = Vector2(6, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5so4"]
+size = Vector2(6, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7s05d"]
+size = Vector2(200, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yecx0"]
+size = Vector2(200, 20)
+
+[node name="EndlessWorld" type="Node2D" unique_id=1710254482]
+script = ExtResource("1_4ufq3")
+
+[node name="UI" parent="." unique_id=1935391453 instance=ExtResource("2_d4kj2")]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=977972169]
+repeat_size = Vector2(400, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=2053302026]
+texture = ExtResource("6_n5so4")
+centered = false
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1587234845]
+position = Vector2(50, 32)
+position_smoothing_speed = 3.0
+script = ExtResource("3_n5so4")
+duration_shake = 50
+
+[node name="InvisibleWalls" type="Node2D" parent="Camera" unique_id=778440156]
+position = Vector2(-50, -32)
+
+[node name="LeftWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls" unique_id=1065901538]
+collision_layer = 131
+collision_mask = 0
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/LeftWall" unique_id=1511873010]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_ktcqf")
+
+[node name="RightWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls" unique_id=527141335]
+position = Vector2(100, 0)
+collision_layer = 128
+collision_mask = 0
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/RightWall" unique_id=50782060]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_n5so4")
+
+[node name="TopWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls" unique_id=543352649]
+position = Vector2(50, 22)
+collision_layer = 131
+collision_mask = 0
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/TopWall" unique_id=256482938]
+position = Vector2(50, 0)
+shape = SubResource("RectangleShape2D_7s05d")
+
+[node name="BottomWall" type="AnimatableBody2D" parent="Camera/InvisibleWalls" unique_id=508959698]
+position = Vector2(50, 74)
+collision_layer = 131
+collision_mask = 0
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/BottomWall" unique_id=1715393586]
+position = Vector2(50, 0)
+shape = SubResource("RectangleShape2D_yecx0")
+
+[node name="ActorsContainer" type="Node2D" parent="." unique_id=596615980]
+y_sort_enabled = true
+script = ExtResource("4_7s05d")
+
+[node name="EndlessSpawner" type="Node" parent="." unique_id=1457897763]
+script = ExtResource("5_d4kj2")

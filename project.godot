@@ -15,12 +15,12 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Fists of Fury"
-run/main_scene="res://world.tscn"
+run/main_scene="uid://bragmw42bijin"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [autoload]
 
+SaveManager="*uid://dkyutch51ludh"
 EntityManager="*res://utils/entity_manager.gd"
 StageManager="*res://utils/stage_manager.gd"
 DamageManager="*res://utils/damage_manager.gd"
@@ -28,6 +28,7 @@ ComboManager="*res://utils/combo_manager.gd"
 MusicPlayer="*res://utils/music_player.tscn"
 SoundPlayer="*res://utils/sound_player.tscn"
 OptionsManager="*uid://cxsaojpxvfies"
+Constants="*uid://dy0ra0auswrln"
 
 [debug]
 
@@ -45,6 +46,10 @@ window/stretch/scale_mode="integer"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[global_group]
+
+player=""
 
 [input]
 

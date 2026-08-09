@@ -41,9 +41,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 2
+theme_override_constants/separation = 1
 alignment = 1
 
 [node name="Label" type="Label" parent="Border/MarginContainer/Contents/VBoxContainer" unique_id=785766601]
@@ -57,6 +61,13 @@ horizontal_alignment = 1
 layout_mode = 2
 theme = ExtResource("1_j0ehl")
 text = "10"
+horizontal_alignment = 1
+
+[node name="LivesLabel" type="Label" parent="Border/MarginContainer/Contents/VBoxContainer" unique_id=283429146]
+layout_mode = 2
+theme = ExtResource("1_j0ehl")
+theme_override_font_sizes/font_size = 6
+text = "Lives:"
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="." unique_id=207826367]

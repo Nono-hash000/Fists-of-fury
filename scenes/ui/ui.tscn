@@ -6,9 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://bxlh1wahgqqe7" path="res://scenes/ui/healthbar.tscn" id="3_afvqa"]
 [ext_resource type="PackedScene" uid="uid://c0xjjoqb6n8wi" path="res://scenes/ui/combo_indicator.tscn" id="5_v1jss"]
 [ext_resource type="PackedScene" uid="uid://dlkev2s84x4xv" path="res://scenes/ui/score_indicator.tscn" id="6_hdap0"]
+[ext_resource type="FontFile" uid="uid://c4agqxkh4gvlx" path="res://assets/fonts/my 3x5 tiny mono pixel font.ttf" id="6_swkix"]
 [ext_resource type="PackedScene" uid="uid://dv7as7fmjbxt8" path="res://scenes/ui/flickering_texture_rect.tscn" id="7_w57sk"]
 [ext_resource type="Texture2D" uid="uid://bflpnyksqncyx" path="res://assets/art/ui/go-go-go.png" id="8_ac4e1"]
 [ext_resource type="PackedScene" uid="uid://bqo0kpxej4dql" path="res://scenes/ui/stage_transition.tscn" id="9_uegxj"]
+[ext_resource type="Script" uid="uid://bruqajjlrlmsq" path="res://scenes/ui/bullet_counter.gd" id="10_y220t"]
+[ext_resource type="Theme" uid="uid://xujyuvvstsau" path="res://gui_theme.tres" id="11_4kltc"]
+[ext_resource type="Script" uid="uid://bi2wx63yp4qwd" path="res://scenes/ui/companion_cooldown.gd" id="12_hl07w"]
+
+[sub_resource type="Theme" id="Theme_hc5d0"]
+default_font = ExtResource("6_swkix")
+default_font_size = 6
+Label/colors/font_color = Color(0.815686, 0.815686, 0, 1)
 
 [node name="UI" type="CanvasLayer" unique_id=855985526]
 process_mode = 3
@@ -60,15 +69,15 @@ offset_bottom = 11.0
 grow_horizontal = 0
 is_inverted = true
 
-[node name="WhiteBorder" parent="UIContainer/EnemyHealthbar" index="0"]
+[node name="WhiteBorder" parent="UIContainer/EnemyHealthbar" index="0" unique_id=1939604979]
 layout_direction = 3
 scale = Vector2(-30, 1)
 
-[node name="ContentBackground" parent="UIContainer/EnemyHealthbar" index="1"]
+[node name="ContentBackground" parent="UIContainer/EnemyHealthbar" index="1" unique_id=572818349]
 layout_direction = 3
 scale = Vector2(-28, 1)
 
-[node name="HealthGauge" parent="UIContainer/EnemyHealthbar" index="2"]
+[node name="HealthGauge" parent="UIContainer/EnemyHealthbar" index="2" unique_id=1446060342]
 layout_direction = 3
 scale = Vector2(-10, 1)
 
@@ -78,17 +87,24 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 1.0
-offset_top = -7.0
+offset_top = -8.0
 offset_right = 22.0
-offset_bottom = -1.0
+offset_bottom = -2.0
 grow_vertical = 0
+
+[node name="TimerBar" type="ColorRect" parent="UIContainer/ComboIndicator" unique_id=718780656]
+layout_mode = 0
+offset_top = 6.0
+offset_right = 40.0
+offset_bottom = 8.0
+theme = SubResource("Theme_hc5d0")
+color = Color(0.8156863, 0.8156863, 0.050980393, 1)
 
 [node name="ScoreIndicator" parent="UIContainer" unique_id=75283200 instance=ExtResource("6_hdap0")]
 layout_mode = 0
 offset_left = 12.0
-offset_top = 1.0
-offset_right = 47.0
-offset_bottom = 7.0
+offset_right = 42.0
+offset_bottom = 23.0
 
 [node name="GoIndicator" parent="UIContainer" unique_id=1205064772 instance=ExtResource("7_w57sk")]
 layout_mode = 1
@@ -105,5 +121,60 @@ stretch_mode = 2
 
 [node name="StageTransition" parent="UIContainer" unique_id=1070984420 instance=ExtResource("9_uegxj")]
 layout_mode = 1
+
+[node name="BulletCounter" type="Control" parent="UIContainer" unique_id=1928990532]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("10_y220t")
+
+[node name="PlayerHealthLabel" type="Label" parent="UIContainer" unique_id=1922847363]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 6.0
+offset_right = 22.0
+offset_bottom = 12.0
+theme = ExtResource("11_4kltc")
+
+[node name="StageLabel" type="Label" parent="UIContainer" unique_id=1376394382]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 6.0
+grow_horizontal = 2
+theme = ExtResource("11_4kltc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CompanionCooldown" type="Label" parent="UIContainer" unique_id=1870807628]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = -14.0
+grow_vertical = 2
+theme = ExtResource("11_4kltc")
+script = ExtResource("12_hl07w")
+
+[node name="LevelLabel" type="Label" parent="UIContainer" unique_id=717324513]
+layout_mode = 0
+offset_top = 18.0
+offset_right = 1.0
+offset_bottom = 24.0
+theme = ExtResource("11_4kltc")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [editable path="UIContainer/EnemyHealthbar"]

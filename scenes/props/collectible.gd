@@ -1,8 +1,6 @@
 class_name Collectible
 extends Area2D
 
-const GRAVITY := 600.0
-
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var collectible_sprite : Sprite2D = $CollectibleSprite
 @onready var damage_emitter : Area2D = $DamageEmitter
@@ -14,7 +12,7 @@ const GRAVITY := 600.0
 @export var type : Type
 
 enum State {FALL, GROUNDED, FLY}
-enum Type {KNIFE, GUN, FOOD}
+enum Type {KNIFE, GUN, FOOD, SUPER_FOOD}
 
 var anim_map := {
 	State.FALL: "fall",
@@ -58,7 +56,7 @@ func handle_fall(delta) -> void:
 			if autodestroy:
 				queue_free()
 		else:
-			height_speed -= GRAVITY * delta
+			height_speed -= Constants.GRAVITY * delta
 		
 func on_emit_damage(receiver: DamageReceiver) -> void:
 	receiver.damage_received.emit(damage, direction, DamageReceiver.HitType.KNOCKDOWN)

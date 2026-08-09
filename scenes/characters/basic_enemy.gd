@@ -17,13 +17,18 @@ var time_since_prep_melee_attack := Time.get_ticks_msec()
 var time_since_last_range_attack := Time.get_ticks_msec()
 var time_since_prep_range_attack := Time.get_ticks_msec()
 var time_since_start_appearing := Time.get_ticks_msec()
+var is_ready_to_move = false
 
 func _ready() -> void:
 	super._ready()
+	await  get_tree().physics_frame
+	is_ready_to_move = true
 	anim_attacks = ["punch", "punch_alt"]
 
-func _process(delta: float) -> void:
-	super._process(delta)
+func _physics_process(delta: float) -> void:
+	super._physics_process(delta)
+	if not is_ready_to_move:
+		return
 	process_appear()
 
 func process_appear() -> void:
@@ -43,22 +48,18 @@ func handle_input() -> void:
 			goto_melee_position()
 
 func goto_range_position() -> void:
-	var camera := get_viewport().get_camera_2d()
-	var screen_width := get_viewport_rect().size.x
-	var screen_left_edge := camera.position.x - screen_width / 2
-	var screen_right_edge := camera.position.x + screen_width / 2
+	var ideal_distance := 30.0
+	var destination := Vector2.ZERO
 	
-	var left_destination := Vector2(screen_left_edge + EDGE_SCREEN_BUFFER, player.position.y)
-	var right_destination := Vector2(screen_right_edge - EDGE_SCREEN_BUFFER, player.position.y)
-	var closest_destination := Vector2.ZERO
-	if (left_destination - position).length() < (right_destination - position).length():
-		closest_destination = left_destination
+	if position.x < player.position.x:
+		destination = Vector2(player.position.x - ideal_distance, player.position.y)
 	else:
-		closest_destination = right_destination
-	if (closest_destination - position).length() < 1:
+		destination = Vector2(player.position.x + ideal_distance, player.position.y)
+	
+	if position.distance_to(destination) < 2.0:
 		velocity = Vector2.ZERO
 	else:
-		velocity = (closest_destination - position).normalized() * speed
+		velocity = position.direction_to(destination) * (speed * 0.75)
 	
 	if can_range_attack() and has_knife and projectile_aim.is_colliding():
 		state = State.THROW
@@ -89,19 +90,33 @@ func goto_melee_position() -> void:
 		state = State.PICKUP
 		if player_slot != null:
 			player.free_slot(self)
+			player_slot = null
 	elif player_slot == null:
 		player_slot = player.reserve_slot(self)
 	
 	if player_slot != null:
-		var direction := (player_slot.global_position - global_position).normalized()
 		if is_player_within_range():
 			velocity = Vector2.ZERO
 			if can_attack():
 				state = State.PREP_ATTACK
 				time_since_prep_melee_attack = Time.get_ticks_msec()
 		else:
+			var direction := global_position.direction_to(player_slot.global_position)
 			velocity = direction * speed
-	
+	else:
+		if player_slot != null:
+			var distance_to_player = global_position.distance_to(player_slot.global_position)
+			if distance_to_player > 40:
+				var direction := global_position.direction_to(player.global_position)
+				velocity = direction * (speed * 0.8)
+			else:
+				velocity = Vector2.ZERO
+		else:
+			if player != null:
+				var direction := global_position.direction_to(player.global_position)
+				velocity = direction * (speed * 0.8)
+			else:
+				velocity = Vector2.ZERO
 
 func handle_prep_attack() -> void:
 	if state == State.PREP_ATTACK and (Time.get_ticks_msec() - time_since_prep_melee_attack > duration_prep_melee_attack):
@@ -132,6 +147,10 @@ func on_receive_damage(amount: int, direction: Vector2, hit_type: DamageReceiver
 	ComboManager.register_hit.emit()
 	if current_health == 0 or hit_type == DamageReceiver.HitType.POWER:
 		EntityManager.spawn_spark.emit(position)
+	if current_health == 0 or hit_type == DamageReceiver.HitType.KNOCKDOWN or hit_type == DamageReceiver.HitType.POWER:
+		if player_slot != null:
+			player.free_slot(self)
+			player_slot = null
 	if current_health == 0:
 		player.free_slot(self)
 		EntityManager.death_enemy.emit(self)

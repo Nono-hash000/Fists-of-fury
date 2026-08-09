@@ -1,11 +1,18 @@
-[gd_scene load_steps=29 format=3 uid="uid://cvr6opvp31hp6"]
+[gd_scene format=3 uid="uid://cvr6opvp31hp6"]
 
 [ext_resource type="PackedScene" uid="uid://h4wo2mqnh48o" path="res://scenes/characters/character.tscn" id="1_1in0h"]
-[ext_resource type="Script" path="res://scenes/characters/player.gd" id="2_1d5f1"]
+[ext_resource type="Script" uid="uid://cnavgb720od41" path="res://scenes/characters/player.gd" id="2_1d5f1"]
 [ext_resource type="Texture2D" uid="uid://cxg8d6qg72u72" path="res://assets/art/characters/player.png" id="2_fyfnq"]
+[ext_resource type="Shader" uid="uid://6nm3ca1nxd0g" path="res://scenes/characters/player.gdshader" id="3_6eyoc"]
 [ext_resource type="PackedScene" uid="uid://c6incy0vxd2f1" path="res://scenes/characters/enemy_slot.tscn" id="4_cma4q"]
 [ext_resource type="Texture2D" uid="uid://c7oy0sgs2x2jr" path="res://assets/art/characters/player_knife.png" id="5_e7erk"]
 [ext_resource type="Texture2D" uid="uid://v0yr0cv722t7" path="res://assets/art/characters/player_gun.png" id="6_hacdv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eojnx"]
+shader = ExtResource("3_6eyoc")
+shader_parameter/original_color = Color(1, 1, 1, 1)
+shader_parameter/new_color = Color(1, 1, 1, 1)
+shader_parameter/tolerance = 0.1
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kwi03"]
 radius = 2.0
@@ -878,41 +885,41 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1vqdb"]
 _data = {
-"RESET": SubResource("Animation_ot1yu"),
-"fall": SubResource("Animation_wumbs"),
-"grounded": SubResource("Animation_gjvar"),
-"hurt": SubResource("Animation_dvjph"),
-"idle": SubResource("Animation_bwa1l"),
-"jump": SubResource("Animation_dl3bv"),
-"jumpkick": SubResource("Animation_gbu5k"),
-"kick": SubResource("Animation_ievtc"),
-"land": SubResource("Animation_qsm04"),
-"pickup": SubResource("Animation_mnxsi"),
-"punch": SubResource("Animation_y660q"),
-"punch_alt": SubResource("Animation_05pmx"),
-"roundkick": SubResource("Animation_n5o5x"),
-"shoot": SubResource("Animation_vutuy"),
-"takeoff": SubResource("Animation_gtx5g"),
-"throw": SubResource("Animation_f40ws"),
-"walk": SubResource("Animation_fp4cu")
+&"RESET": SubResource("Animation_ot1yu"),
+&"fall": SubResource("Animation_wumbs"),
+&"grounded": SubResource("Animation_gjvar"),
+&"hurt": SubResource("Animation_dvjph"),
+&"idle": SubResource("Animation_bwa1l"),
+&"jump": SubResource("Animation_dl3bv"),
+&"jumpkick": SubResource("Animation_gbu5k"),
+&"kick": SubResource("Animation_ievtc"),
+&"land": SubResource("Animation_qsm04"),
+&"pickup": SubResource("Animation_mnxsi"),
+&"punch": SubResource("Animation_y660q"),
+&"punch_alt": SubResource("Animation_05pmx"),
+&"roundkick": SubResource("Animation_n5o5x"),
+&"shoot": SubResource("Animation_vutuy"),
+&"takeoff": SubResource("Animation_gtx5g"),
+&"throw": SubResource("Animation_f40ws"),
+&"walk": SubResource("Animation_fp4cu")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xc3oh"]
 size = Vector2(10, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xonq"]
-size = Vector2(10, 10)
+size = Vector2(12, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66ndo"]
 size = Vector2(3, 3)
 
-[node name="Player" instance=ExtResource("1_1in0h")]
+[node name="Player" unique_id=60607645 groups=["player"] instance=ExtResource("1_1in0h")]
 collision_layer = 2
 collision_mask = 137
 script = ExtResource("2_1d5f1")
 max_duration_between_successful_hits = 2000
 can_respawn = true
-damage = 4
+damage = 5
 max_health = 30
 duration_grounded = 1000.0
 jump_intensity = 150.0
@@ -922,9 +929,10 @@ speed = 35.0
 autodestroy_on_drop = true
 damage_gunshot = 8
 damage_power = 6
-max_ammo_per_gun = 3
+max_ammo_per_gun = 6
 
 [node name="CharacterSprite" parent="." index="1"]
+material = SubResource("ShaderMaterial_eojnx")
 texture = ExtResource("2_fyfnq")
 centered = false
 offset = Vector2(-24, -48)
@@ -936,10 +944,8 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_kwi03")
 
 [node name="AnimationPlayer" parent="." index="3"]
-libraries = {
-"": SubResource("AnimationLibrary_1vqdb")
-}
-autoplay = "idle"
+libraries/ = SubResource("AnimationLibrary_1vqdb")
+autoplay = &"idle"
 
 [node name="DamageEmitter" parent="." index="4"]
 position = Vector2(0, -12)
@@ -953,22 +959,25 @@ shape = SubResource("RectangleShape2D_xc3oh")
 collision_layer = 16
 
 [node name="CollisionShape2D" parent="DamageReceiver" index="0"]
-position = Vector2(0, -15)
+position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_5xonq")
 
-[node name="EnemySlots" type="Node2D" parent="." index="6"]
+[node name="EnemySlots" type="Node2D" parent="." index="6" unique_id=175600008]
 
-[node name="EnemySlot" parent="EnemySlots" index="0" instance=ExtResource("4_cma4q")]
+[node name="EnemySlot" parent="EnemySlots" index="0" unique_id=1311876266 instance=ExtResource("4_cma4q")]
 position = Vector2(13, 3)
 
-[node name="EnemySlot2" parent="EnemySlots" index="1" instance=ExtResource("4_cma4q")]
+[node name="EnemySlot2" parent="EnemySlots" index="1" unique_id=622064508 instance=ExtResource("4_cma4q")]
 position = Vector2(13, -2)
 
-[node name="EnemySlot3" parent="EnemySlots" index="2" instance=ExtResource("4_cma4q")]
+[node name="EnemySlot3" parent="EnemySlots" index="2" unique_id=2040155648 instance=ExtResource("4_cma4q")]
 position = Vector2(-13, 3)
 
-[node name="EnemySlot4" parent="EnemySlots" index="3" instance=ExtResource("4_cma4q")]
+[node name="EnemySlot4" parent="EnemySlots" index="3" unique_id=397350753 instance=ExtResource("4_cma4q")]
 position = Vector2(-13, -2)
+
+[node name="CollisionShape2D" parent="CollateralDamageEmitter" index="0"]
+disabled = true
 
 [node name="KnifeSprite" parent="." index="8"]
 texture = ExtResource("5_e7erk")

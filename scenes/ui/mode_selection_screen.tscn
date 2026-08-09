@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bgw8bd744dwpi"]
+
+[ext_resource type="PackedScene" uid="uid://brxdqp5e1hj40" path="res://scenes/ui/controls/label_picker.tscn" id="1_31146"]
+[ext_resource type="Script" uid="uid://d067eeq8kffx2" path="res://scenes/ui/mode_selection_screen.gd" id="1_g5t53"]
+[ext_resource type="Theme" uid="uid://xujyuvvstsau" path="res://gui_theme.tres" id="3_cm7gb"]
+
+[node name="ModeSelectionScreen" type="Control" unique_id=131867724]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g5t53")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=480297114]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1707272797]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -8.0
+offset_right = 15.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="BtnStages" parent="VBoxContainer" unique_id=616180371 instance=ExtResource("1_31146")]
+layout_mode = 2
+theme = ExtResource("3_cm7gb")
+alignment = 1
+text = "STAGES"
+
+[node name="Label" parent="VBoxContainer/BtnStages" index="0" unique_id=1449253291]
+text = "STAGES"
+
+[node name="BtnEndless" parent="VBoxContainer" unique_id=2076242977 instance=ExtResource("1_31146")]
+layout_mode = 2
+theme = ExtResource("3_cm7gb")
+alignment = 1
+text = "ENDLESS SURVIVAL"
+
+[node name="Label" parent="VBoxContainer/BtnEndless" index="0" unique_id=1449253291]
+text = "ENDLESS SURVIVAL"
+
+[editable path="VBoxContainer/BtnStages"]
+[editable path="VBoxContainer/BtnEndless"]

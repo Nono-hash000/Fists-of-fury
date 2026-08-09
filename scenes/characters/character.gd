@@ -1,8 +1,6 @@
 class_name Character
 extends CharacterBody2D
 
-const GRAVITY := 600.0
-
 @export var can_respawn : bool
 @export var damage : int
 @export var max_health : int
@@ -81,10 +79,11 @@ func _ready() -> void:
 	damage_receiver.damage_received.connect(on_receive_damage.bind())
 	collateral_damage_emitter.area_entered.connect(on_emit_collateral_damage.bind())
 	collateral_damage_emitter.body_entered.connect(on_wall_hit.bind())
+	apply_difficulty()
 	set_health(max_health, type == Character.Type.PLAYER)
 	set_sprite_height_position()
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	handle_input()
 	handle_movement()
 	handle_animations()
@@ -111,10 +110,10 @@ func set_sprite_height_position() -> void:
 	gun_sprite.position = Vector2.UP * height
 
 func setup_collisions() -> void:
-	collision_shape.disabled = is_collision_disabled()
-	damage_emitter.monitoring = is_attacking()
-	damage_receiver.monitorable = can_get_hurt()
-	collateral_damage_emitter.monitoring = state == State.FLY
+	collision_shape.set_deferred("disabled", is_collision_disabled())
+	damage_emitter.set_deferred("monitoring", is_attacking())
+	damage_receiver.set_deferred("monitorable", can_get_hurt())
+	collateral_damage_emitter.set_deferred("monitoring", state == State.FLY)
 
 func handle_movement() -> void:
 	if can_move():
@@ -156,18 +155,18 @@ func handle_animations() -> void:
 		animation_player.play(anim_map[state])
 
 func handle_air_time(delta: float) -> void:
-	if [State.JUMP, State.JUMPKICK, State.FALL, State.DROP].has(state):
+	if [State.JUMP, State.JUMPKICK, State.FALL, State.DROP, State.FLY].has(state):
 		height += height_speed * delta
 		if height < 0:
 			height = 0
-			if state == State.FALL:
+			if state == State.FALL or state == State.FLY:
 				state = State.GROUNDED
 				time_since_grounded = Time.get_ticks_msec()
 			else:
 				state = State.LAND
 			velocity = Vector2.ZERO
 		else:
-			height_speed -= GRAVITY * delta
+			height_speed -= Constants.GRAVITY * delta
 
 func set_heading() -> void:
 	pass
@@ -220,7 +219,9 @@ func can_pickup_collectible() -> bool:
 		return true
 	if collectible.type == Collectible.Type.GUN and not is_carrying_weapon():
 		return true
-	if collectible.type == Collectible.Type.FOOD:
+	if collectible.type == Collectible.Type.FOOD and type == Type.PLAYER:
+		return true
+	if collectible.type == Collectible.Type.SUPER_FOOD and type == Type.PLAYER:
 		return true
 	return false
 
@@ -231,8 +232,9 @@ func shoot_gun() -> void:
 	var target := projectile_aim.get_collider()
 	if target != null:
 		target_point = projectile_aim.get_collision_point()
-		target.on_receive_damage(damage_gunshot, heading, DamageReceiver.HitType.KNOCKDOWN)
-		EntityManager.spawn_spark.emit(target.position)
+		if target.has_method("on_receive_damage"):
+			target.on_receive_damage(damage_gunshot, heading, DamageReceiver.HitType.KNOCKDOWN)
+			EntityManager.spawn_spark.emit(target.position)
 	SoundPlayer.play(SoundManager.Sound.GUNSHOT)
 	var weapon_root_position := Vector2(weapon_position.global_position.x, position.y)
 	var weapon_height := -weapon_position.position.y
@@ -253,10 +255,15 @@ func pickup_collectible() -> void:
 		if collectible.type == Collectible.Type.FOOD:
 			set_health(max_health)
 			SoundPlayer.play(SoundManager.Sound.FOOD)
+			if collectible.type == Collectible.Type.SUPER_FOOD:
+				set_health(max_health)
+				SoundPlayer.play(SoundManager.Sound.FOOD)
+				if has_method("apply_super_strength"):
+					call("apply_super_strength")
 		collectible.queue_free()
 		
 func is_collision_disabled() -> bool:
-	return [State.GROUNDED, State.DEATH, State.FLY].has(state)
+	return [State.DEATH].has(state)
 
 func on_action_complete() -> void:
 	state = State.IDLE
@@ -290,6 +297,8 @@ func on_receive_damage(amount: int, direction: Vector2, hit_type: DamageReceiver
 	if can_get_hurt():
 		attack_combo_index = 0
 		can_respawn_knives = false
+		if amount > 0:
+			EntityManager.spawn_damage_indicator.emit(amount, position + Vector2.UP * (height + 20))
 		if has_knife:
 			has_knife = false
 			EntityManager.spawn_collectible.emit(Collectible.Type.KNIFE, Collectible.State.FALL, global_position, Vector2.ZERO, 0.0, autodestroy_on_drop)
@@ -302,11 +311,13 @@ func on_receive_damage(amount: int, direction: Vector2, hit_type: DamageReceiver
 		if current_health == 0 or hit_type == DamageReceiver.HitType.KNOCKDOWN:
 			state = State.FALL
 			height_speed = knockdown_intensity
-			velocity = direction * knockback_intensity
+			if direction != Vector2.ZERO:
+				velocity = direction * knockback_intensity
 			DamageManager.heavy_blow_received.emit()
 		elif hit_type == DamageReceiver.HitType.POWER:
 			state = State.FLY
 			velocity = direction * flight_speed
+			height_speed = knockdown_intensity
 			DamageManager.heavy_blow_received.emit()
 		else:
 			state = State.HURT
@@ -338,3 +349,11 @@ func set_health(health: int, is_emitting_signal: bool = true) -> void:
 	current_health = clamp(health, 0, max_health)
 	if is_emitting_signal:
 		DamageManager.health_change.emit(type, current_health, max_health)
+
+func apply_difficulty() -> void:
+	if type == Type.PLAYER:
+		max_health = int(max_health * OptionsManager.get_player_multipler())
+		damage = int(damage * OptionsManager.get_player_multipler())
+	else:
+		max_health = int(max_health * OptionsManager.get_enemy_multipler())
+		damage = int(damage * OptionsManager.get_enemy_multipler())

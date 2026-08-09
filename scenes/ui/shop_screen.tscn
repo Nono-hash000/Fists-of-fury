@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://c5yi204tikpdb"]
+
+[ext_resource type="Theme" uid="uid://xujyuvvstsau" path="res://gui_theme.tres" id="1_plyct"]
+[ext_resource type="Script" uid="uid://bjqweyg3sar4g" path="res://scenes/ui/shop_screen.gd" id="2_ttelo"]
+[ext_resource type="PackedScene" uid="uid://brxdqp5e1hj40" path="res://scenes/ui/controls/label_picker.tscn" id="3_c23c5"]
+[ext_resource type="PackedScene" uid="uid://c6rcakvsj4106" path="res://scenes/ui/controls/range_picker.tscn" id="3_ttelo"]
+
+[node name="ShopScreen" type="Control" unique_id=580594858]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_plyct")
+script = ExtResource("2_ttelo")
+
+[node name="BackGround" type="ColorRect" parent="." unique_id=549744464]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078, 0.078, 0.078, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="BackGround" unique_id=2054169745]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 13
+theme_override_constants/margin_right = 13
+theme_override_constants/margin_bottom = 13
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/MarginContainer" unique_id=225866554]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="TitleLabel" type="Label" parent="BackGround/MarginContainer/VBoxContainer" unique_id=1762417215]
+layout_mode = 2
+text = "SHOP"
+horizontal_alignment = 1
+
+[node name="StatsLabel" type="Label" parent="BackGround/MarginContainer/VBoxContainer" unique_id=1816791220]
+layout_mode = 2
+text = "SCORE: 0 | ARMOR: L0"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="BackGround/MarginContainer/VBoxContainer" unique_id=1929306916]
+layout_mode = 2
+
+[node name="ArmorBtn" parent="BackGround/MarginContainer/VBoxContainer" unique_id=616180371 instance=ExtResource("3_ttelo")]
+layout_mode = 2
+current_value = 0
+max_value = 5
+
+[node name="Label" parent="BackGround/MarginContainer/VBoxContainer/ArmorBtn" index="0" unique_id=1449253291]
+text = "Armor"
+horizontal_alignment = 1
+
+[node name="TextureRect6" parent="BackGround/MarginContainer/VBoxContainer/ArmorBtn/TicksContainer" parent_id_path=PackedInt32Array(616180371, 1519120969) index="5" unique_id=1133581133]
+visible = false
+
+[node name="TextureRect7" parent="BackGround/MarginContainer/VBoxContainer/ArmorBtn/TicksContainer" parent_id_path=PackedInt32Array(616180371, 1519120969) index="6" unique_id=1293941665]
+visible = false
+
+[node name="TextureRect8" parent="BackGround/MarginContainer/VBoxContainer/ArmorBtn/TicksContainer" parent_id_path=PackedInt32Array(616180371, 1519120969) index="7" unique_id=1067202336]
+visible = false
+
+[node name="TextureRect9" parent="BackGround/MarginContainer/VBoxContainer/ArmorBtn/TicksContainer" parent_id_path=PackedInt32Array(616180371, 1519120969) index="8" unique_id=1722658761]
+visible = false
+
+[node name="TextureRect10" parent="BackGround/MarginContainer/VBoxContainer/ArmorBtn/TicksContainer" parent_id_path=PackedInt32Array(616180371, 1519120969) index="9" unique_id=396659949]
+visible = false
+
+[node name="FoodBtn" parent="BackGround/MarginContainer/VBoxContainer" unique_id=801812941 instance=ExtResource("3_c23c5")]
+layout_mode = 2
+
+[node name="Label" parent="BackGround/MarginContainer/VBoxContainer/FoodBtn" index="0" unique_id=1449253291]
+text = "Food"
+
+[node name="GunBtn" parent="BackGround/MarginContainer/VBoxContainer" unique_id=91369886 instance=ExtResource("3_c23c5")]
+layout_mode = 2
+
+[node name="Label" parent="BackGround/MarginContainer/VBoxContainer/GunBtn" index="0" unique_id=1449253291]
+text = "Gun"
+
+[node name="AllyBtn" parent="BackGround/MarginContainer/VBoxContainer" unique_id=768019041 instance=ExtResource("3_c23c5")]
+layout_mode = 2
+
+[node name="Label" parent="BackGround/MarginContainer/VBoxContainer/AllyBtn" index="0" unique_id=1449253291]
+text = "Ally"
+
+[node name="CloseBtn" parent="BackGround/MarginContainer/VBoxContainer" unique_id=356889678 instance=ExtResource("3_c23c5")]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" parent="BackGround/MarginContainer/VBoxContainer/CloseBtn" index="0" unique_id=1449253291]
+text = "Return"
+
+[editable path="BackGround/MarginContainer/VBoxContainer/ArmorBtn"]
+[editable path="BackGround/MarginContainer/VBoxContainer/FoodBtn"]
+[editable path="BackGround/MarginContainer/VBoxContainer/GunBtn"]
+[editable path="BackGround/MarginContainer/VBoxContainer/AllyBtn"]
+[editable path="BackGround/MarginContainer/VBoxContainer/CloseBtn"]

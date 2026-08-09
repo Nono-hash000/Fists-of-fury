@@ -26,6 +26,7 @@ func refresh() -> void:
 		activables[i].set_activable(current_selection_index == i)
 
 func _process(_delta: float) -> void:
+	if not is_visible_in_tree(): return
 	handle_input()
 
 func handle_input() -> void:
@@ -40,13 +41,16 @@ func handle_input() -> void:
 
 func on_music_volume_change(value: int) -> void:
 	OptionsManager.set_music_volume(value)
+	SaveManager.save_options()
 
 func on_sfx_volume_change(value: int) -> void:
 	OptionsManager.set_sfx_volume(value)
 	SoundPlayer.play(SoundManager.Sound.HIT1)
+	SaveManager.save_options()
 
 func on_shake_value_change(value: int) -> void:
 	OptionsManager.set_screenshake(value == 1)
+	SaveManager.save_options()
 
 func on_return_pressed() -> void:
 	exit.emit()

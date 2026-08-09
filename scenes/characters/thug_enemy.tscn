@@ -661,6 +661,10 @@ duration_between_range_attacks = 2500
 damage = 3
 type = 3
 duration_grounded = 1300.0
+flight_speed = 65.0
+knockback_intensity = 7.0
+knockdown_intensity = 45.0
+speed = 16.0
 has_gun = true
 
 [node name="CharacterSprite" parent="." index="1"]
@@ -668,7 +672,6 @@ texture = ExtResource("2_qlivg")
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries/ = SubResource("AnimationLibrary_nahco")
-autoplay = &"idle"
 
 [editable path="DamageEmitter"]
 [editable path="DamageReceiver"]

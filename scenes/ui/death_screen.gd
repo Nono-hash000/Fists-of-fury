@@ -5,10 +5,12 @@ signal game_over
 
 @onready var timer: Timer = $Timer
 @onready var countdown_label: Label = $Border/MarginContainer/Contents/VBoxContainer/CountdownLabel
+@onready var lives_label: Label = $Border/MarginContainer/Contents/VBoxContainer/LivesLabel
 
 @export var countdown_start : int
 
 var current_count := 0
+var lives_left := 3
 
 func _ready() -> void:
 	current_count = countdown_start
@@ -16,7 +18,7 @@ func _ready() -> void:
 	refresh()
 
 func _process(_delta: float) -> void:
-	if current_count < countdown_start and (Input.is_action_just_pressed("attack") or Input.is_action_just_pressed("jump")):
+	if lives_left > 0 and current_count < countdown_start and (Input.is_action_just_pressed("attack") or Input.is_action_just_pressed("jump")):
 		DamageManager.player_revive.emit()
 		queue_free()
 
@@ -30,3 +32,8 @@ func on_timer_timeout() -> void:
 	else:
 		game_over.emit()
 		queue_free()
+
+func set_lives(lives: int) -> void:
+	lives_left = lives
+	if lives_label:
+		lives_label.text = "Lives:" + str(max(0, lives_left))

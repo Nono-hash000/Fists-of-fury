@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnwqi0bw23cl3"]
+[gd_scene format=3 uid="uid://cnwqi0bw23cl3"]
 
 [ext_resource type="PackedScene" uid="uid://ba7x8fhqs3fta" path="res://scenes/characters/basic_enemy.tscn" id="1_vv56i"]
 [ext_resource type="Texture2D" uid="uid://cjlullb74g6ng" path="res://assets/art/characters/enemy_goon.png" id="2_w4itl"]
 
-[node name="GoonEnemy" instance=ExtResource("1_vv56i")]
+[node name="GoonEnemy" unique_id=901324352 instance=ExtResource("1_vv56i")]
 damage = 1
 max_health = 18
 type = 2
 duration_grounded = 700.0
 flight_speed = 120.0
+knockback_intensity = 7.0
 knockdown_intensity = 80.0
-speed = 28.0
 can_respawn_knives = true
 duration_between_knife_respawn = 1000
 has_knife = true

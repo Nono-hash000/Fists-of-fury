@@ -51,9 +51,42 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Background/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1021963112]
 layout_mode = 2
 theme = ExtResource("1_dnrai")
-text = "SCORE:"
+text = "VIWERS:"
 
 [node name="ScoreIndicator" parent="Background/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1742376779 instance=ExtResource("2_sopbp")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Background/MarginContainer/VBoxContainer" unique_id=1024513066]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Background/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1206616845]
+layout_mode = 2
+theme = ExtResource("1_dnrai")
+text = "KILLS:"
+
+[node name="KillsLabel" parent="Background/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1074354260 instance=ExtResource("2_sopbp")]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Background/MarginContainer/VBoxContainer" unique_id=881676853]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Background/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=595688244]
+layout_mode = 2
+theme = ExtResource("1_dnrai")
+text = "STAGE:"
+
+[node name="StageReached" parent="Background/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=499062458 instance=ExtResource("2_sopbp")]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Background/MarginContainer/VBoxContainer" unique_id=1291319776]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Background/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=313272155]
+layout_mode = 2
+theme = ExtResource("1_dnrai")
+text = "TIME :"
+
+[node name="TIME" parent="Background/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1253794249 instance=ExtResource("2_sopbp")]
 layout_mode = 2
 
 [node name="Timer" type="Timer" parent="." unique_id=2017507820]

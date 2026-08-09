@@ -1,30 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://dv0080mtbogqj"]
+[gd_scene format=3 uid="uid://dv0080mtbogqj"]
 
 [ext_resource type="PackedScene" uid="uid://h4wo2mqnh48o" path="res://scenes/characters/character.tscn" id="1_ptlbg"]
-[ext_resource type="Script" path="res://scenes/characters/igor_boss.gd" id="2_1s67a"]
+[ext_resource type="Script" uid="uid://dan6y1c6dqqsu" path="res://scenes/characters/igor_boss.gd" id="2_1s67a"]
 [ext_resource type="Texture2D" uid="uid://ck756b887y8qw" path="res://assets/art/characters/enemy_boss.png" id="2_52y4a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grl2h"]
 radius = 2.0
 height = 10.0
-
-[sub_resource type="Animation" id="Animation_qw8lo"]
-resource_name = "idle"
-length = 0.1
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [90]
-}
 
 [sub_resource type="Animation" id="Animation_v2eh3"]
 length = 0.001
@@ -39,42 +21,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [90]
-}
-
-[sub_resource type="Animation" id="Animation_pvu54"]
-resource_name = "walk"
-length = 0.8
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [90, 91, 92, 93, 94, 95, 96, 97]
-}
-
-[sub_resource type="Animation" id="Animation_80170"]
-resource_name = "fly"
-length = 0.1
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [43]
 }
 
 [sub_resource type="Animation" id="Animation_55gih"]
@@ -95,8 +41,8 @@ tracks/0/keys = {
 "values": [60]
 }
 
-[sub_resource type="Animation" id="Animation_cbi5t"]
-resource_name = "recover"
+[sub_resource type="Animation" id="Animation_80170"]
+resource_name = "fly"
 length = 0.1
 loop_mode = 1
 step = 0.1
@@ -110,7 +56,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [70]
+"values": [43]
 }
 
 [sub_resource type="Animation" id="Animation_mb5yv"]
@@ -162,20 +108,74 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_qw8lo"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [90]
+}
+
+[sub_resource type="Animation" id="Animation_cbi5t"]
+resource_name = "recover"
+length = 0.1
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [70]
+}
+
+[sub_resource type="Animation" id="Animation_pvu54"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [90, 91, 92, 93, 94, 95, 96, 97]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0m88t"]
 _data = {
-"RESET": SubResource("Animation_v2eh3"),
-"fall": SubResource("Animation_55gih"),
-"fly": SubResource("Animation_80170"),
-"grounded": SubResource("Animation_mb5yv"),
-"hurt": SubResource("Animation_ryy57"),
-"idle": SubResource("Animation_qw8lo"),
-"recover": SubResource("Animation_cbi5t"),
-"walk": SubResource("Animation_pvu54")
+&"RESET": SubResource("Animation_v2eh3"),
+&"fall": SubResource("Animation_55gih"),
+&"fly": SubResource("Animation_80170"),
+&"grounded": SubResource("Animation_mb5yv"),
+&"hurt": SubResource("Animation_ryy57"),
+&"idle": SubResource("Animation_qw8lo"),
+&"recover": SubResource("Animation_cbi5t"),
+&"walk": SubResource("Animation_pvu54")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyiv2"]
-size = Vector2(3, 3)
+size = Vector2(6, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ivcj"]
 size = Vector2(12, 12)
@@ -183,7 +183,7 @@ size = Vector2(12, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_elqrn"]
 size = Vector2(6, 6)
 
-[node name="IgorBoss" instance=ExtResource("1_ptlbg")]
+[node name="IgorBoss" unique_id=507669358 instance=ExtResource("1_ptlbg")]
 collision_layer = 4
 script = ExtResource("2_1s67a")
 distance_from_player = 30
@@ -194,6 +194,7 @@ max_health = 50
 type = 4
 duration_grounded = 2000.0
 flight_speed = 90.0
+jump_intensity = 100.0
 knockback_intensity = 10.0
 knockdown_intensity = 100.0
 speed = 15.0
@@ -212,16 +213,14 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_grl2h")
 
 [node name="AnimationPlayer" parent="." index="3"]
-libraries = {
-"": SubResource("AnimationLibrary_0m88t")
-}
-autoplay = "idle"
+libraries/ = SubResource("AnimationLibrary_0m88t")
+autoplay = &"idle"
 
 [node name="DamageEmitter" parent="." index="4"]
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="DamageEmitter" index="0"]
-position = Vector2(9, -9)
+position = Vector2(11, -14)
 shape = SubResource("RectangleShape2D_qyiv2")
 
 [node name="DamageReceiver" parent="." index="5"]

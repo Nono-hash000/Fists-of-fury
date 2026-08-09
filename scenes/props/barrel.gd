@@ -6,8 +6,6 @@ extends StaticBody2D
 @export var content_type : Collectible.Type
 @export var knockback_intensity : float
 
-const GRAVITY := 600.0
-
 enum State {IDLE, DESTROYED}
 
 var height := 0.0
@@ -40,4 +38,4 @@ func handle_air_time(delta: float) -> void:
 			height = 0
 			queue_free()
 		else:
-			height_speed -= GRAVITY * delta
+			height_speed -= Constants.GRAVITY * delta

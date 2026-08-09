@@ -13,8 +13,8 @@ var knockback_force := Vector2.ZERO
 var time_last_attack := Time.get_ticks_msec()
 var time_start_vulnerable := Time.get_ticks_msec()
 
-func _process(delta: float) -> void:
-	super._process(delta)
+func _physics_process(delta: float) -> void:
+	super._physics_process(delta)
 	knockback_force = knockback_force.move_toward(Vector2.ZERO, delta * GROUND_FRICTION)
 
 func get_target_destination() -> Vector2:
@@ -42,6 +42,7 @@ func handle_input() -> void:
 		if can_attack() and projectile_aim.is_colliding():
 			state = State.FLY
 			velocity = heading * flight_speed
+			height_speed = jump_intensity
 		else:
 			if is_player_within_range():
 				velocity = Vector2.ZERO
@@ -77,6 +78,8 @@ func is_vulnerable() -> bool:
 func on_receive_damage(amount: int, direction: Vector2, _hit_type: DamageReceiver.HitType) -> void:
 	if not is_vulnerable():
 		knockback_force = direction * knockback_intensity
+		SoundPlayer.play(SoundManager.Sound.HIT1, true)
+		EntityManager.spawn_spark.emit(position)
 		return
 	ComboManager.register_hit.emit()
 	current_health = clamp(current_health - amount, 0, max_health)

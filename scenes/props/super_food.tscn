@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://d08uamra1d27o"]
+
+[ext_resource type="PackedScene" uid="uid://b8dwnj8immud3" path="res://scenes/props/collectible.tscn" id="1_uefuf"]
+[ext_resource type="Texture2D" uid="uid://c0jjjmwad8304" path="res://assets/art/props/chicken.png" id="2_5p718"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hutpp"]
+
+[sub_resource type="Animation" id="Animation_g0uyr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollectibleSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_qy84f"]
+resource_name = "fall"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollectibleSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 1.5708, 3.14159, 4.71239]
+}
+
+[sub_resource type="Animation" id="Animation_kxclo"]
+resource_name = "grounded"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollectibleSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6p6ud"]
+_data = {
+&"RESET": SubResource("Animation_g0uyr"),
+&"fall": SubResource("Animation_qy84f"),
+&"grounded": SubResource("Animation_kxclo")
+}
+
+[node name="SuperFood" unique_id=1148834054 instance=ExtResource("1_uefuf")]
+collision_mask = 2
+knockdown_intensity = 80.0
+type = 3
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_hutpp")
+
+[node name="CollectibleSprite" parent="." index="1"]
+modulate = Color(1, 0.9309246, 0.48452926, 1)
+texture = ExtResource("2_5p718")
+centered = false
+offset = Vector2(-8, -8)
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries/ = SubResource("AnimationLibrary_6p6ud")
+autoplay = &"fall"

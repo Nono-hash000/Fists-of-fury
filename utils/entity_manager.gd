@@ -6,3 +6,8 @@ signal spawn_collectible(type: Collectible.Type, initial_state: Collectible.Stat
 signal spawn_enemy(enemy_data: EnemyData)
 signal spawn_spark(spark_position: Vector2)
 signal spawn_shot(gun_root_position: Vector2, distance_traveled: float, height: float)
+signal spawn_damage_indicator(amount: int, indicator_position: Vector2)
+signal trigger_audience_drop()
+signal trigger_audience_attack(target_y_position: float, target_height: float)
+signal spawn_companion(spawn_position: Vector2)
+signal companion_cooldown_started(cooldown_ms: int)
