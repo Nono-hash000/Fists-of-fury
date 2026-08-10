@@ -94,29 +94,52 @@ The shop has 4 items, which you can buy using your score. By pressing P you will
 <img width="1252" height="802" alt="Screenshot 2026-07-18 170608" src="https://github.com/user-attachments/assets/3c6f91c3-465b-4670-9f34-10eb600d6e02" />
 
 
-1. Clone the Repository
+## Getting Started
+* **Follow these steps to set up, clone, and run the project locally on your machine.**
+
+* **Prerequisites**
+* **Godot Engine:** This project requires Godot 4.x. Download it from the official Godot website or via Steam/itch.io.
+
+* **1. Clone the Repository**
+
+
 Clone the project using your terminal or command prompt:
 
 Bash
-git clone [https://github.com/Nono-hash000/Fists-of-fury.git]
+
+
+git clone https://github.com/Nono-hash000/Fists-of-fury.git
+
+
 cd your-repo-name
 
-2. Open the Project in Godot
+* **2. Open the Project in Godot**
+
+
 Launch the Godot Engine project manager.
+
 
 Click the Import button on the right side.
 
+
 Browse to the directory where you cloned the repository and select the project.godot file.
+
 
 Click Import & Edit.
 
-3. Launch Locally
+* **3. Launch Locally**
+
+  
 Once the project is open in the Godot Editor:
+
 
 Press F5 (or click the Play button in the top-right corner) to run the main scene.
 
+
 Press F6 to run the currently active scene.
 
-I built this game in **Godot 4.6**.
+
+
+I built this game in Godot 4.6.
 
 This project is open-source under the **MIT License**.
