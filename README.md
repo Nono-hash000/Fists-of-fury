@@ -2,12 +2,14 @@
 
 This is a arcade style beat'em up game made using godot 4.6
 
-
 ##  Game Modes
 
 * **Story Stages:**
+  
 * *Stage 1 is the streets this is the start of the game and at the end of stage 1 you enter stage 2.
+  
 * *Stage 2 is the bar this is the bigger segment of the story. Also here is wher you encounter the boss at the end of the stage 2 trying to stop you from exiting the bar and enter the stage 3.
+  
 * *Stage 3 is after you exit the bar(stage 2) then you will need to clean up the rest of the punks, thugs and goons waiting outside the bar to end the game
 
 * **Endless Survival:** This is a endless survival mode where the enemies keep on spawning. You will have 3 lives.
@@ -60,17 +62,25 @@ Break barrels or impress the audience with your combos to get drops:
 
 * **Guns:** Has 6 ammo useful for ranged attacks.
 
+
+* **Ally:** Spawn a copy of you who will fight along you. Pressing V summons him.
+
+
 ## Shop
 
-The shop has 4 items, which you can buy using your score.
+The shop has 4 items, which you can buy using your score. By pressing P you will enter the shop.
 
 * **Armor:** It has 5 levels and reduces the damage received from the enemies. Base cost is 750 and increases with every purchase.
+
   
 * **Food:** It give you food so that you can re-gain your health. Cost is 250.
+
   
 * **Gun:** If you don't have a gun, now you can buy a gun. Cost is 500.
+
   
 * **Ally:** Reduces the time it takes to spawn the ally. Cost is 25000 (I know it is high compared to everything in the shop).
+
   
 ## Pictures
 
