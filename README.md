@@ -64,10 +64,15 @@ Break barrels or impress the audience with your combos to get drops:
 
 The shop has 4 items, which you can buy using your score.
 
-* **Armor:** It has 5 levels and reduces the damage received from the enemies. Base cost is 750 and increases with every purchase. 
+* **Armor:** It has 5 levels and reduces the damage received from the enemies. Base cost is 750 and increases with every purchase.
+  
 * **Food:** It give you food so that you can re-gain your health. Cost is 250.
+  
 * **Gun:** If you don't have a gun, now you can buy a gun. Cost is 500.
+  
 * **Ally:** Reduces the time it takes to spawn the ally. Cost is 25000 (I know it is high compared to everything in the shop).
+  
+## Pictures
 
 <img width="1002" height="647" alt="Screenshot 2026-07-25 173419" src="https://github.com/user-attachments/assets/9d8e2c38-7a57-43cc-a8dc-ee0a4d9f60a9" />
 <img width="1007" height="652" alt="Screenshot 2026-07-25 173519" src="https://github.com/user-attachments/assets/f9b7d283-e221-4d41-a965-bfc216e165f4" />
