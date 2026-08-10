@@ -60,12 +60,22 @@ Break barrels or impress the audience with your combos to get drops:
 
 * **Guns:** Has 6 ammo useful for ranged attacks.
 
+## Shop
+
+The shop has 4 items, which you can buy using your score.
+
+* **Armor:** It has 5 levels and reduces the damage received from the enemies. Base cost is 750 and increases with every purchase. 
+* **Food:** It give you food so that you can re-gain your health. Cost is 250.
+* **Gun:** If you don't have a gun, now you can buy a gun. Cost is 500.
+* **Ally:** Reduces the time it takes to spawn the ally. Cost is 25000 (I know it is high compared to everything in the shop).
+
 <img width="1002" height="647" alt="Screenshot 2026-07-25 173419" src="https://github.com/user-attachments/assets/9d8e2c38-7a57-43cc-a8dc-ee0a4d9f60a9" />
 <img width="1007" height="652" alt="Screenshot 2026-07-25 173519" src="https://github.com/user-attachments/assets/f9b7d283-e221-4d41-a965-bfc216e165f4" />
 <img width="1008" height="632" alt="Screenshot 2026-07-25 173450" src="https://github.com/user-attachments/assets/a7504cec-4cd3-4a49-bb2b-faf9362e8c75" />
 <img width="1010" height="651" alt="Screenshot 2026-07-25 173532" src="https://github.com/user-attachments/assets/50186268-6d62-46f5-b2ec-c17235c49bd9" />
 <img width="1007" height="647" alt="Screenshot 2026-07-25 173558" src="https://github.com/user-attachments/assets/596765b1-bb3c-49de-a275-59ee73e6988d" />
 <img width="1006" height="645" alt="image" src="https://github.com/user-attachments/assets/323e6fff-a280-4077-8bd3-fd122ee33219" />
+<img width="1247" height="797" alt="image" src="https://github.com/user-attachments/assets/8174dde5-eada-4e47-a23b-e6b9da2b5f06" />
 <img width="1252" height="802" alt="Screenshot 2026-07-18 170608" src="https://github.com/user-attachments/assets/3c6f91c3-465b-4670-9f34-10eb600d6e02" />
 
 I built this game in **Godot 4.6**.
