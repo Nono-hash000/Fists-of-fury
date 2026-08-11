@@ -2,87 +2,49 @@
 
 This is a arcade style beat'em up game made using godot 4.6
 
-##  Game Modes
-
-* **Story Stages:**
-  
-* *Stage 1 is the streets this is the start of the game and at the end of stage 1 you enter stage 2.
-  
-* *Stage 2 is the bar this is the bigger segment of the story. Also here is wher you encounter the boss at the end of the stage 2 trying to stop you from exiting the bar and enter the stage 3.
-  
-* *Stage 3 is after you exit the bar(stage 2) then you will need to clean up the rest of the punks, thugs and goons waiting outside the bar to end the game
-
-* **Endless Survival:** This is a endless survival mode where the enemies keep on spawning. You will have 3 lives.
-
-*(Note: Endless Mode actively tracks your highest score stats, while a secret "Audience Score" judges your combos in the background to decide when to drop loot!)*
+There are two game modes in this arcade style game which are:
+1. Stages: There are three stages which are:
+  1. Street: The start of the game where you will find street level thugs who will rarely carry knifes and guns. After the completion of stage 1 you will enter stage 2.
+  2. Bar: Here you will find thugs who will carry knifes and guns, at the end of the stage you will encounter the boss. After the completion of stage 2 you will enter the stage 3 street or the exit.
+  3. Street: This is the final stage of the game where you will find the rest of the thugs. After the completion of stage 3 the Stages mode is over.
+2. Endless: This mode is inspired from the endless subway surfer. In this mode you will encounter an endless wave of enemies as you move towards to the right of the screen. This mode has an exclusive shop. Press KEY_P to open the shop.
 
 
-##  Controls
-
-* **Move:** `W`, `A`, `S`, `D`
-
-* **Jump:** `Spacebar`
-
-* **Attack / Use Weapon:** `Left Mouse Click`
-
-* **Pick Up Items:** Walk over them and `Left Mouse Click`
-
-* **Summon Ally:** `V` (Watch the cooldown timer!)
-* 
-* **Pause / Settings:** `ESC`
-
-*Menu Navigation: Use W/S/Up/Down to select, and Attack/Jump to confirm!*
+Enemies: There are mainly 3 types of enemies and 1 boss. The enemies are:
+1. Thug: He is a hand to hand fighter who will get into you space and attack.
+2. Goon: A fast moving ranged knife thrower who has the ability to respawn knives and throw at you.
+3. Punk: Also a fast moving ranged attacker who uses a gun, so be careful.
+4. Boss: He will jump on to you to attack you when you dodge the attack he will go to the recovery state where you can attack them.
+Note: In the endless mode the enemies have a random chance of spawning knives or guns.
 
 
-##  Enemies
-
-The city is crawling with different types of bad guys:
-
-* **The Punk:** He is fast and is a hand to hand fighter.
-
-
-* **The Goon:** Fast but weak so he uses knives for ranged attacks but don't mistake his boxing skills.
+Controls:
+Movement: W for moving forward, S for moving backwards, A for moving left, D for moving right and space bar for jumping.
+Attack: Left Click for attacking the enemies and barrels.
+UI keys: UP arrow or W to go up, DOWN arrow or s to go down and left click to select.
 
 
-* **The Thug:** Has a lot of health but uses a gun for heavy ranged attack.
+Drops: The barrels contain food, knives, guns.
+1. Food: Used to gain the health.
+2. Knives: Used to throw at enemies to knock them down. Useful for crowd control.
+3. Guns: Used to shoot at enemies to knock them down. Useful for crowd control.
 
 
-* **Boss Igor:** The big man himself. He drops in to cause chaos. You need to be good to defeat him. He is also able to climb walls and attack you jumping on you.
+Ability:
+Ally: Press KEY_V to spawn a shadow figure of yourself to help you in tight areas.
 
 
-##  Weapons 
-
-Break barrels or impress the audience with your combos to get drops:
-
-* **Food / Super Food:** Eat chicken to heal up and get back in the fight. Super Food gives you a temporary super-strength buff!
-
-
-* **Knives:** Great for fighting multiple enemies at once.
+Shop:
+1. Armor: It has 5 levels as the levels increases the defense of the character increases.
+2. Food: Gives you full health.
+3. Gun: Gives you a gun if you don't have a gun.
+4. Ally: Reduces the spawn between the each summon.
 
 
-* **Guns:** Has 6 ammo useful for ranged attacks.
+Audience: As you play in both modes there are audience watching you play who will either sabotage or help your game. 
 
 
-* **Ally:** Spawn a copy of you who will fight along you. Pressing V summons him.
-
-
-## Shop
-
-The shop has 4 items, which you can buy using your score. By pressing P you will enter the shop.
-
-* **Armor:** It has 5 levels and reduces the damage received from the enemies. Base cost is 750 and increases with every purchase.
-
-  
-* **Food:** It give you food so that you can re-gain your health. Cost is 250.
-
-  
-* **Gun:** If you don't have a gun, now you can buy a gun. Cost is 500.
-
-  
-* **Ally:** Reduces the time it takes to spawn the ally. Cost is 25000 (I know it is high compared to everything in the shop).
-
-  
-## Pictures
+Pictures
 
 <img width="1002" height="647" alt="Screenshot 2026-07-25 173419" src="https://github.com/user-attachments/assets/9d8e2c38-7a57-43cc-a8dc-ee0a4d9f60a9" />
 <img width="1007" height="652" alt="Screenshot 2026-07-25 173519" src="https://github.com/user-attachments/assets/f9b7d283-e221-4d41-a965-bfc216e165f4" />
@@ -94,50 +56,39 @@ The shop has 4 items, which you can buy using your score. By pressing P you will
 <img width="1252" height="802" alt="Screenshot 2026-07-18 170608" src="https://github.com/user-attachments/assets/3c6f91c3-465b-4670-9f34-10eb600d6e02" />
 
 
-## Getting Started
-* **Follow these steps to set up, clone, and run the project locally on your machine.**
-
 * **Prerequisites**
-* **Godot Engine:** This project requires Godot 4.x. Download it from the official Godot website or via Steam/itch.io.
+
+* **Godot Engine**: You need to have Godot 4.x to work on this project. You can get it from the Godot website or you can download it from Steam or itch.io.
 
 * **1. Clone the Repository**
 
-
-Clone the project using your terminal or command prompt:
+To get the project files you have to clone the repository using your terminal or command prompt. Here is how you do it:
 
 Bash
 
-
 git clone https://github.com/Nono-hash000/Fists-of-fury.git
 
+Then you have to go to the directory where you cloned the Godot project. You do this by typing
 
 cd your-repo-name
 
 * **2. Open the Project in Godot**
 
+Now you have to open the Godot Engine project manager.
 
-Launch the Godot Engine project manager.
+When it is open you have to click the Import button on the side of the window.
 
+Next you have to find the directory where you cloned the Godot project and select the project.godot file.
 
-Click the Import button on the right side.
-
-
-Browse to the directory where you cloned the repository and select the project.godot file.
-
-
-Click Import & Edit.
+After that you have to click Import & Edit to open the project in Godot.
 
 * **3. Launch Locally**
 
-  
-Once the project is open in the Godot Editor:
+Once the Godot project is open in the Godot Editor you can run it.
 
+To run the scene you have to press F5 or you can click the Play button, in the top-right corner of the Godot Editor.
 
-Press F5 (or click the Play button in the top-right corner) to run the main scene.
-
-
-Press F6 to run the currently active scene.
-
+If you want to run the scene that's currently open you have to press F6.
 
 
 I built this game in Godot 4.6.
